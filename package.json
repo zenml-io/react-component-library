@@ -1,0 +1,22 @@
+{
+	"name": "@zenml-io/react-component-library",
+	"version": "0.1.0",
+	"description": "React Component Library from Zenml.io",
+	"keywords": [],
+	"license": "Apache-2.0",
+	"author": "ZenML",
+	"type": "module",
+	"main": "index.js",
+	"scripts": {
+		"format": "prettier -w src",
+		"prepare": "husky install"
+	},
+	"lint-staged": {
+		"*.{css,js,md,ts,jsx,tsx,ts}": "prettier --write"
+	},
+	"devDependencies": {
+		"husky": "^8.0.0",
+		"lint-staged": "^14.0.0",
+		"prettier": "^3.0.2"
+	}
+}
