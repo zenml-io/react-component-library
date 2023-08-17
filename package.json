@@ -1,0 +1,45 @@
+{
+	"name": "@zenml-io/react-component-library",
+	"version": "0.1.0",
+	"description": "React Component Library from Zenml.io",
+	"keywords": [],
+	"license": "Apache-2.0",
+	"author": "ZenML",
+	"type": "module",
+	"main": "index.js",
+	"scripts": {
+		"build-storybook": "storybook build",
+		"format": "prettier -w src",
+		"prepare": "husky install",
+		"storybook": "storybook dev -p 6006"
+	},
+	"lint-staged": {
+		"*.{css,js,md,ts,jsx,tsx,ts}": "prettier --write"
+	},
+	"devDependencies": {
+		"@storybook/addon-essentials": "^7.3.1",
+		"@storybook/addon-interactions": "^7.3.1",
+		"@storybook/addon-links": "^7.3.1",
+		"@storybook/addon-onboarding": "^1.0.8",
+		"@storybook/addon-styling": "^1.3.6",
+		"@storybook/blocks": "^7.3.1",
+		"@storybook/react": "^7.3.1",
+		"@storybook/react-vite": "^7.3.1",
+		"@storybook/testing-library": "^0.2.0",
+		"autoprefixer": "^10.4.15",
+		"husky": "^8.0.0",
+		"lint-staged": "^14.0.0",
+		"postcss": "^8.4.28",
+		"prettier": "^3.0.2",
+		"storybook": "^7.3.1",
+		"tailwindcss": "^3.3.3",
+		"tsup": "^7.2.0",
+		"typescript": "^5.1.6"
+	},
+	"peerDependencies": {
+		"@types/react": "^18.0.0",
+		"@types/react-dom": "^18.0.0",
+		"react": "^18.0.0",
+		"react-dom": "^18.0.0"
+	}
+}
