@@ -8,16 +8,33 @@
 	"type": "module",
 	"main": "index.js",
 	"scripts": {
+		"build-storybook": "storybook build",
 		"format": "prettier -w src",
-		"prepare": "husky install"
+		"prepare": "husky install",
+		"storybook": "storybook dev -p 6006"
 	},
 	"lint-staged": {
 		"*.{css,js,md,ts,jsx,tsx,ts}": "prettier --write"
 	},
 	"devDependencies": {
+		"@storybook/addon-essentials": "^7.3.1",
+		"@storybook/addon-interactions": "^7.3.1",
+		"@storybook/addon-links": "^7.3.1",
+		"@storybook/addon-onboarding": "^1.0.8",
+		"@storybook/blocks": "^7.3.1",
+		"@storybook/react": "^7.3.1",
+		"@storybook/react-vite": "^7.3.1",
+		"@storybook/testing-library": "^0.2.0",
 		"husky": "^8.0.0",
 		"lint-staged": "^14.0.0",
 		"prettier": "^3.0.2",
+		"storybook": "^7.3.1",
 		"typescript": "^5.1.6"
+	},
+	"peerDependencies": {
+		"@types/react": "^18.0.0",
+		"@types/react-dom": "^18.0.0",
+		"react": "^18.0.0",
+		"react-dom": "^18.0.0"
 	}
 }
