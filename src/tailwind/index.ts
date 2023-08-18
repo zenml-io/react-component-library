@@ -99,6 +99,30 @@ export const zenmlPlugin = plugin(
 				11: "5rem/*80px*/",
 				12: "6rem/*96px*/"
 			},
+			fontSize: {
+				"text-xs": ["0.75rem", "1.125rem"],
+				"text-sm": ["0.875rem", "1.25rem"],
+				"text-md": ["1rem", "1.5rem"],
+				"text-lg": ["1.125rem", "1.75rem"],
+				"text-xl": ["1.25rem", "1.875rem"],
+				"display-xs": ["1.5rem", "2rem"],
+				"display-sm": ["1.875rem", "2.375rem"],
+				"display-md": [
+					"2.25rem",
+					{
+						letterSpacing: "-0.045rem",
+						lineHeight: "2.75rem"
+					}
+				],
+				"display-lg": [
+					"3rem",
+					{
+						letterSpacing: "-0.06rem",
+						lineHeight: "3.75rem"
+					}
+				],
+				"display-xl": ["3.75rem", "4.5rem"]
+			},
 			extend: {
 				colors: {
 					theme: {
