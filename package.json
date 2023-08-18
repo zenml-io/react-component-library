@@ -16,6 +16,16 @@
 				"types": "./dist/index.d.cts",
 				"default": "./dist/index.cjs"
 			}
+		},
+		"./utilities": {
+			"import": {
+				"types": "./dist/utilities.d.ts",
+				"default": "./dist/utilities.js"
+			},
+			"require": {
+				"types": "./dist/utilities.d.cts",
+				"default": "./dist/utilities.cjs"
+			}
 		}
 	},
 	"main": "./dist/index.cjs",
@@ -24,6 +34,7 @@
 		"dist"
 	],
 	"scripts": {
+		"build": "tsup",
 		"build-storybook": "storybook build",
 		"format": "prettier -w src",
 		"prepare": "husky install",
@@ -32,6 +43,10 @@
 	},
 	"lint-staged": {
 		"*.{css,js,md,ts,jsx,tsx,ts}": "prettier --write"
+	},
+	"dependencies": {
+		"clsx": "^2.0.0",
+		"tailwind-merge": "^1.14.0"
 	},
 	"devDependencies": {
 		"@storybook/addon-essentials": "^7.3.1",
