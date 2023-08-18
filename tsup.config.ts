@@ -1,6 +1,6 @@
 import { defineConfig } from "tsup";
 
-const pureCalls = [
+const reactPureCalls = [
 	"cloneElement",
 	"createContext",
 	"createElement",
@@ -13,10 +13,11 @@ const pureCalls = [
 ];
 
 export default defineConfig({
-	entry: ["src/index.ts"],
+	entry: ["src/index.ts", "src/utilities.ts"],
 	treeshake: true,
 	external: ["react"],
 	format: ["cjs", "esm"],
 	dts: true,
-	pure: pureCalls
+	pure: reactPureCalls,
+	clean: true
 });
