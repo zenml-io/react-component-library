@@ -35,11 +35,12 @@
 	],
 	"scripts": {
 		"build": "tsup",
-		"build-storybook": "storybook build",
 		"format": "prettier -w src",
 		"prepare": "husky install",
 		"publint": "publint",
-		"storybook": "storybook dev -p 6006"
+		"storybook": "storybook dev -p 6006",
+		"storybook:build": "storybook build",
+		"storybook:publish": "npm run storybook:build && touch ./storybook-static/.nojekyll"
 	},
 	"lint-staged": {
 		"*.{css,js,md,ts,jsx,tsx,ts}": "prettier --write"
