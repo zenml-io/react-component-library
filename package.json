@@ -47,7 +47,8 @@
 	},
 	"dependencies": {
 		"clsx": "^2.0.0",
-		"tailwind-merge": "^1.14.0"
+		"tailwind-merge": "^1.14.0",
+		"tailwindcss": "^3.3.3"
 	},
 	"devDependencies": {
 		"@storybook/addon-essentials": "^7.3.1",
@@ -66,7 +67,6 @@
 		"prettier": "^3.0.2",
 		"publint": "^0.2.0",
 		"storybook": "^7.3.1",
-		"tailwindcss": "^3.3.3",
 		"tsup": "^7.2.0",
 		"typescript": "^5.1.6"
 	},
