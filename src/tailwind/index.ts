@@ -83,45 +83,45 @@ export const zenmlPlugin = plugin(
 	{
 		theme: {
 			spacing: {
-				0: "0rem/*0px*/",
-				0.25: "0.125rem/*2px*/",
-				0.5: "0.25rem/*4px*/",
-				1: "0.5rem/*8px*/",
-				2: "0.75rem/*12px*/",
-				3: "1rem/*16px*/",
-				4: "1.25rem/*20px*/",
-				5: "1.5rem/*24px*/",
-				6: "2rem/*32px*/",
-				7: "2.5rem/*40px*/",
-				8: "3rem/*48px*/",
-				9: "4rem/*64px*/",
-				10: "4.5rem/*72px*/",
-				11: "5rem/*80px*/",
-				12: "6rem/*96px*/"
+				0: "0rem/* 0px */",
+				0.25: "0.125rem/* 2px */",
+				0.5: "0.25rem/* 4px */",
+				1: "0.5rem/* 8px */",
+				2: "0.75rem/* 12px */",
+				3: "1rem/* 16px */",
+				4: "1.25rem/* 20px */",
+				5: "1.5rem/* 24px */",
+				6: "2rem/* 32px */",
+				7: "2.5rem/* 40px */",
+				8: "3rem/* 48px */",
+				9: "4rem/* 64px */",
+				10: "4.5rem/* 72px */",
+				11: "5rem/* 80px */",
+				12: "6rem/* 96px */"
 			},
 			fontSize: {
-				"text-xs": ["0.75rem", "1.125rem"],
-				"text-sm": ["0.875rem", "1.25rem"],
-				"text-md": ["1rem", "1.5rem"],
-				"text-lg": ["1.125rem", "1.75rem"],
-				"text-xl": ["1.25rem", "1.875rem"],
-				"display-xs": ["1.5rem", "2rem"],
-				"display-sm": ["1.875rem", "2.375rem"],
+				"text-xs": ["0.75rem/* 12px */", "1.125rem"],
+				"text-sm": ["0.875rem/* 14px */", "1.25rem"],
+				"text-md": ["1rem/* 16px */", "1.5rem"],
+				"text-lg": ["1.125rem/* 18px */", "1.75rem"],
+				"text-xl": ["1.25rem/* 20px */", "1.875rem"],
+				"display-xs": ["1.5rem/* 24px */", "2rem"],
+				"display-sm": ["1.875rem/* 30px */", "2.375rem"],
 				"display-md": [
-					"2.25rem",
+					"2.25rem /* 36px */",
 					{
 						letterSpacing: "-0.045rem",
 						lineHeight: "2.75rem"
 					}
 				],
 				"display-lg": [
-					"3rem",
+					"3rem/* 48px */",
 					{
 						letterSpacing: "-0.06rem",
 						lineHeight: "3.75rem"
 					}
 				],
-				"display-xl": ["3.75rem", "4.5rem"]
+				"display-xl": ["3.75rem/* 60px */", "4.5rem"]
 			},
 			extend: {
 				colors: {
