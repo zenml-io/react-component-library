@@ -21,7 +21,7 @@ jobs:
 
       - name: Install and Build
         run: |
-          pnpm
+          pnpm install
           pnpm build-storybook
 
       - name: Deploy
