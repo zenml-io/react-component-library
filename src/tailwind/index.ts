@@ -40,7 +40,16 @@ export const zenmlPlugin = plugin(
 				"--color-error-200": "3 81% 79%",
 				"--color-error-100": "4 81% 86%",
 				"--color-error-050": "3 81% 92%",
+				"--color-warning-900": "32 93% 17%",
+				"--color-warning-800": "33 92% 25%",
+				"--color-warning-700": "32 92% 34%",
+				"--color-warning-600": "33 93% 42%",
 				"--color-warning-500": "32 95% 51%",
+				"--color-warning-400": "32 95% 59%",
+				"--color-warning-300": "32 95% 67%",
+				"--color-warning-200": "33 95% 75%",
+				"--color-warning-100": "32 95% 84%",
+				"--color-warning-050": "33 96% 90%",
 				"--color-success-900": "137 75% 14%",
 				"--color-success-800": "137 75% 22%",
 				"--color-success-700": "137 74% 29%",
@@ -186,7 +195,16 @@ export const zenmlPlugin = plugin(
 						50: "hsl(var(--color-error-050) / <alpha-value>)"
 					},
 					warning: {
-						500: "hsl(var(--color-warning-500) / <alpha-value>)"
+						900: "hsl(var(--color-warning-900) / <alpha-value>)",
+						800: "hsl(var(--color-warning-800) / <alpha-value>)",
+						700: "hsl(var(--color-warning-700) / <alpha-value>)",
+						600: "hsl(var(--color-warning-600) / <alpha-value>)",
+						500: "hsl(var(--color-warning-500) / <alpha-value>)",
+						400: "hsl(var(--color-warning-400) / <alpha-value>)",
+						300: "hsl(var(--color-warning-300) / <alpha-value>)",
+						200: "hsl(var(--color-warning-200) / <alpha-value>)",
+						100: "hsl(var(--color-warning-100) / <alpha-value>)",
+						50: "hsl(var(--color-warning-050) / <alpha-value>)"
 					},
 					success: {
 						900: "hsl(var(--color-success-900) / <alpha-value>)",
