@@ -1,3 +1,22 @@
 import { Meta } from "@storybook/blocks";
 
 <Meta title="Docs/Tailwind" />
+
+# Tailwind
+
+The component library is designed to use Tailwind as the css framework. Therefore it exposes a **Tailwind Plugin** & **a Tailwind Preset** containing all relevant base styles for the ZenML design system.
+
+The styles aren't bundled into a dedicated stylesheet that can be imported from the lib itself. Therefore you need to extend the `content` prop of your `tailwind.config.js` like so:
+
+```js
+import { zenmlPreset } from "@zenml-io/react-component-library";
+
+/** @type {import('tailwindcss').Config} */
+export default {
+	presets: [zenmlPreset],
+	content: [
+		"./src/**/*.{js,ts,jsx,tsx}",
+		"./node_modules/@zenml-io/react-component-library/**/*.{js,ts,jsx,tsx}"
+	]
+};
+```
