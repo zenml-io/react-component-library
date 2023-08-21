@@ -91,6 +91,12 @@ export const zenmlPlugin = plugin(
 	},
 	{
 		theme: {
+			borderRadius: {
+				sharp: "0px",
+				sm: "0.25rem/* 4px */",
+				md: "0.5rem/* 8px */",
+				rounded: "9999px"
+			},
 			spacing: {
 				0: "0rem/* 0px */",
 				0.25: "0.125rem/* 2px */",
