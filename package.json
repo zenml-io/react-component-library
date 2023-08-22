@@ -35,6 +35,9 @@
 	],
 	"scripts": {
 		"build": "tsup",
+		"changeset": "changeset && pnpm install",
+		"changeset:version": "changeset version && pnpm install --lockfile-only",
+		"changeset:publish": "changeset publish",
 		"format": "prettier -w src",
 		"prepare": "husky install",
 		"publint": "publint",
@@ -51,6 +54,7 @@
 		"tailwindcss": "^3.3.3"
 	},
 	"devDependencies": {
+		"@changesets/cli": "^2.26.2",
 		"@storybook/addon-essentials": "^7.3.1",
 		"@storybook/addon-interactions": "^7.3.1",
 		"@storybook/addon-links": "^7.3.1",
