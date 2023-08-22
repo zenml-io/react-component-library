@@ -48,6 +48,7 @@
 		"changeset:version": "changeset version && pnpm install --lockfile-only",
 		"format": "prettier -w src",
 		"prepare": "husky install",
+		"prepublishOnly": "pnpm build",
 		"publint": "publint",
 		"storybook": "storybook dev -p 6006",
 		"storybook:build": "storybook build",
