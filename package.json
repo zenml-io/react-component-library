@@ -1,8 +1,16 @@
 {
 	"name": "@zenml-io/react-component-library",
-	"version": "0.1.0",
+	"version": "0.0.1",
 	"description": "React Component Library from Zenml.io",
-	"keywords": [],
+	"keywords": [
+		"ZenML",
+		"React"
+	],
+	"homepage": "https://github.com/zenml-io/react-component-library",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/zenml-io/react-component-library"
+	},
 	"license": "Apache-2.0",
 	"author": "ZenML",
 	"type": "module",
@@ -36,8 +44,8 @@
 	"scripts": {
 		"build": "tsup",
 		"changeset": "changeset && pnpm install",
-		"changeset:version": "changeset version && pnpm install --lockfile-only",
 		"changeset:publish": "changeset publish",
+		"changeset:version": "changeset version && pnpm install --lockfile-only",
 		"format": "prettier -w src",
 		"prepare": "husky install",
 		"publint": "publint",
