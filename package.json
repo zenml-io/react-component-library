@@ -27,12 +27,12 @@
 		},
 		"./utilities": {
 			"import": {
-				"types": "./dist/utilities.d.ts",
-				"default": "./dist/utilities.js"
+				"types": "./dist/utilities/index.d.ts",
+				"default": "./dist/utilities/index.js"
 			},
 			"require": {
-				"types": "./dist/utilities.d.cts",
-				"default": "./dist/utilities.cjs"
+				"types": "./dist/utilities/index.d.cts",
+				"default": "./dist/utilities/index.cjs"
 			}
 		}
 	},
