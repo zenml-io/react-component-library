@@ -82,6 +82,9 @@ devDependencies:
   publint:
     specifier: ^0.2.0
     version: 0.2.0
+  replace-in-files:
+    specifier: ^3.0.0
+    version: 3.0.0
   storybook:
     specifier: ^7.3.1
     version: 7.3.1
@@ -4719,6 +4722,11 @@ packages:
     engines: {node: '>=6'}
     dev: false
 
+  /co@4.6.0:
+    resolution: {integrity: sha512-QVb0dM5HvG+uaxitm8wONl7jltx8dqhfU33DcqtOZcLSVIKSDDLDi7+0LbAKiyI8hD9u42m2YxXSkMGWThaecQ==}
+    engines: {iojs: '>= 1.0.0', node: '>= 0.12.0'}
+    dev: true
+
   /color-convert@1.9.3:
     resolution: {integrity: sha512-QfAUtd+vFdAtFQcC8CCyYt1fYWxSqAiK2cSD6zDB8N3cpsEBAvRxp9zOGg6G/SHHJYAT88/az/IuDGALsNVbGg==}
     dependencies:
@@ -5314,6 +5322,10 @@ packages:
 
   /es6-object-assign@1.1.0:
     resolution: {integrity: sha512-MEl9uirslVwqQU369iHNWZXsI8yaZYGg/D65aOgZkeyFJwHYSxilf7rQzXKI7DdDuBPrBXbfk3sl9hJhmd5AUw==}
+    dev: true
+
+  /es6-promisify@6.1.1:
+    resolution: {integrity: sha512-HBL8I3mIki5C1Cc9QjKUenHtnG0A5/xA8Q/AllRcfiwl2CZFXGK7ddBiCoRwAix4i2KxcQfjtIVcrVbB3vbmwg==}
     dev: true
 
   /esbuild-plugin-alias@0.2.1:
@@ -6239,6 +6251,10 @@ packages:
     engines: {node: '>=8'}
     dependencies:
       binary-extensions: 2.2.0
+
+  /is-binary@0.1.0:
+    resolution: {integrity: sha512-S5p0zsv2XYP4dntIDW8Q7X7b0zd0Ew+xUb/12iQZ6R+JQyqmjl0V8d/D3cARjFAscJBXXQymUbk6t3J3wp+AbQ==}
+    dev: true
 
   /is-boolean-object@1.1.2:
     resolution: {integrity: sha512-gDYaKHJmnj4aWxyj6YHyXVpdQawtVLHU5cb+eztPGczf6cjuTdwve5ZIEfgXqH4e57An1D1AKf8CZ3kYrQRqYA==}
@@ -8238,6 +8254,17 @@ packages:
       github-slugger: 1.5.0
       mdast-util-to-string: 1.1.0
       unist-util-visit: 2.0.3
+    dev: true
+
+  /replace-in-files@3.0.0:
+    resolution: {integrity: sha512-f3lb8Fac0JZ56BrebGFoRaGvmSAF+M6Zcj0NZl3Qrd6L8HT2LA8/LObCjbTb4Sof/J/gg0tC9pUD/loW4X5u6w==}
+    engines: {node: '>=12.0.0'}
+    dependencies:
+      co: 4.6.0
+      es6-promisify: 6.1.1
+      globby: 11.1.0
+      is-binary: 0.1.0
+      lodash: 4.17.21
     dev: true
 
   /require-directory@2.1.1:
