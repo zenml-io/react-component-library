@@ -42,11 +42,12 @@
 		"dist"
 	],
 	"scripts": {
-		"build": "tsup",
+		"build": "tsup && npm run fix:types",
 		"changeset": "changeset && pnpm install",
 		"changeset:publish": "changeset publish",
 		"changeset:version": "changeset version && pnpm install --lockfile-only",
 		"dev": "tsup --watch",
+		"fix:types": "node scripts/fix-type-defs.js",
 		"format": "prettier -w src",
 		"prepare": "husky install",
 		"prepublishOnly": "pnpm build",
@@ -82,6 +83,7 @@
 		"postcss": "^8.4.28",
 		"prettier": "^3.0.2",
 		"publint": "^0.2.0",
+		"replace-in-files": "^3.0.0",
 		"storybook": "^7.3.1",
 		"tsup": "^7.2.0",
 		"typescript": "^5.1.6"
