@@ -46,6 +46,7 @@
 		"changeset": "changeset && pnpm install",
 		"changeset:publish": "changeset publish",
 		"changeset:version": "changeset version && pnpm install --lockfile-only",
+		"dev": "tsup --watch",
 		"format": "prettier -w src",
 		"prepare": "husky install",
 		"prepublishOnly": "pnpm build",
@@ -58,6 +59,7 @@
 		"*.{css,js,md,ts,jsx,tsx,ts}": "prettier --write"
 	},
 	"dependencies": {
+		"@radix-ui/react-slot": "^1.0.2",
 		"class-variance-authority": "^0.7.0",
 		"clsx": "^2.0.0",
 		"tailwind-merge": "^1.14.0",
