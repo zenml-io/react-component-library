@@ -1,5 +1,15 @@
 # @zenml-io/react-component-library
 
+## 0.2.0
+
+### Minor Changes
+
+- c4c2c29: add initial version of the button component to the library
+
+### Patch Changes
+
+- 0b23b5f: provide custom `twMerge` utility
+
 ## 0.1.1
 
 ### Patch Changes
