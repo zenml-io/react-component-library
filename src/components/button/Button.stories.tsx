@@ -21,6 +21,17 @@ const meta = {
 			defaultValue: "primary",
 			control: "select",
 			options: ["primary", "secondary", "danger"]
+		},
+		asChild: {
+			description: "if true, the props of the button are getting merged to the first child",
+			defaultValue: false,
+			control: "boolean"
+		},
+		emphasis: {
+			description: "emphasis of the button",
+			defaultValue: "bold",
+			control: "select",
+			options: ["bold", "subtle", "minimal"]
 		}
 	},
 	tags: ["autodocs"]
@@ -30,10 +41,83 @@ export default meta;
 
 type Story = StoryObj<typeof meta>;
 
-export const PrimaryButton: Story = {
+export const Primary: Story = {
 	args: {
 		children: "Hello World",
 		size: "sm",
+		intent: "primary",
+		emphasis: "bold"
+	}
+};
+
+export const Secondary: Story = {
+	args: {
+		children: "Hello World",
+		size: "sm",
+		intent: "secondary",
+		emphasis: "bold"
+	}
+};
+
+export const Danger: Story = {
+	args: {
+		children: "Hello World",
+		size: "sm",
+		intent: "danger",
+		emphasis: "bold"
+	}
+};
+
+export const Small: Story = {
+	args: {
+		children: "Hello World",
+		size: "sm",
+		intent: "primary",
+		emphasis: "bold"
+	}
+};
+
+export const Large: Story = {
+	args: {
+		children: "Hello World",
+		size: "lg",
+		intent: "primary",
+		emphasis: "bold"
+	}
+};
+
+export const ExtraLarge: Story = {
+	args: {
+		children: "Hello World",
+		size: "xl",
+		intent: "primary",
+		emphasis: "bold"
+	}
+};
+
+export const Bold: Story = {
+	args: {
+		children: "Hello World",
+		emphasis: "bold",
+		size: "xl",
 		intent: "primary"
+	}
+};
+
+export const Subtle: Story = {
+	args: {
+		children: "Hello World",
+		size: "xl",
+		emphasis: "subtle",
+		intent: "primary"
+	}
+};
+
+export const Minimal: Story = {
+	args: {
+		children: "Hello World",
+		size: "xl",
+		intent: "primary",
+		emphasis: "minimal"
 	}
 };

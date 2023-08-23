@@ -4,19 +4,18 @@ import { type VariantProps, cva } from "class-variance-authority";
 import { cn } from "../../utilities/index";
 
 const buttonVariants = cva(
-	"transition-all duration-200 flex gap-1 items-center rounded-md font-semibold disabled:pointer-events-none",
+	"transition-all rounded-md duration-200 flex gap-1 items-center font-semibold disabled:pointer-events-none",
 	{
 		variants: {
+			emphasis: {
+				bold: "",
+				subtle: "",
+				minimal: ""
+			},
 			intent: {
-				primary:
-					"bg-primary-500 text-white hover:bg-primary-400 active:ring-[#E4D8FD] active:bg-primary-500 active-visible:outline-none active:ring-4 disabled:bg-primary-50",
-				secondary:
-					"bg-neutral-200 text-theme-text-primary hover:bg-neutral-300 active-visible:outline-none active:bg-neutral-400 active:ring-4 active:ring-[#E5E7EB] disabled:text-neutral-100",
-				transparent:
-					"bg-transparent text-theme-text-secondary hover:bg-neutral-300 hover:text-theme-text-primary active:bg-neutral-400 active:outline-none active:ring-4 active:ring-[#E5E7EB] disabled:text-theme-text-tertiary",
-				headless: "",
-				danger:
-					"bg-error-600 text-white hover:bg-error-500 active:ring-error-50 active:bg-error-600 active-visible:outline-none active:ring-4 disabled:bg-error-50"
+				primary: "",
+				secondary: "",
+				danger: ""
 			},
 			size: {
 				sm: "py-1 px-2",
@@ -24,9 +23,69 @@ const buttonVariants = cva(
 				xl: "py-3 px-5"
 			}
 		},
+		compoundVariants: [
+			// Primary
+			{
+				emphasis: "bold",
+				intent: "primary",
+				class:
+					"bg-primary-500 text-white hover:bg-primary-400 active:ring-[#E4D8FD] active:bg-primary-500 focus-visible:outline-none active:ring-4 disabled:bg-primary-50"
+			},
+			{
+				emphasis: "subtle",
+				intent: "primary",
+				class:
+					"border border-primary-400 text-primary-600 hover:bg-primary-50 active:bg-primary-100 active:ring-[#E4D8FD] active:ring-4 disabled:border-primary-100 disabled:text-primary-100"
+			},
+			{
+				emphasis: "minimal",
+				intent: "primary",
+				class:
+					"text-primary-600 hover:bg-primary-50 active:bg-primary-100 active:ring-[#E4D8FD] active:ring-4 disabled:text-primary-100"
+			},
+			// Secondary
+			{
+				emphasis: "bold",
+				intent: "secondary",
+				class:
+					"bg-neutral-200 text-theme-text-primary hover:bg-neutral-300 focus-visible:outline-none active:bg-neutral-400 active:ring-4 active:ring-[#E5E7EB] disabled:text-neutral-300"
+			},
+			{
+				emphasis: "subtle",
+				intent: "secondary",
+				class:
+					"border border-neutral-300 text-neutral-900 hover:bg-neutral-100 active:border-neutral-400 active:bg-neutral-300 active:ring-4 active:ring-neutral-100 disabled:border-neutral-300 disabled:text-neutral-300"
+			},
+			{
+				emphasis: "minimal",
+				intent: "secondary",
+				class:
+					"text-primary-900 hover:bg-neutral-200 active:bg-neutral-300 active:ring-4 active:ring-neutral-100 disabled:text-neutral-300"
+			},
+			// Danger
+			{
+				emphasis: "bold",
+				intent: "danger",
+				class:
+					"bg-error-600 text-white hover:bg-error-500 active:ring-error-50 active:bg-error-600 focus-visible:outline-none active:ring-4 disabled:bg-error-100"
+			},
+			{
+				emphasis: "subtle",
+				intent: "danger",
+				class:
+					"border border-error-600 text-error-700 hover:bg-error-50 active:bg-error-100 active:ring-4 active:ring-error-50 disabled:border-error-100 disabled:text-error-100"
+			},
+			{
+				emphasis: "minimal",
+				intent: "danger",
+				class:
+					"text-error-700 hover:bg-error-50 active:bg-error-100 active:ring-4 active:ring-error-50 disabled:text-error-100"
+			}
+		],
 		defaultVariants: {
-			intent: "primary",
-			size: "sm"
+			size: "sm",
+			emphasis: "bold",
+			intent: "primary"
 		}
 	}
 );
@@ -37,7 +96,7 @@ export interface ButtonProps
 	asChild?: boolean;
 }
 
-export function Button({ intent, size, className, asChild, ...rest }: ButtonProps) {
+export function Button({ intent, size, className, asChild, emphasis, ...rest }: ButtonProps) {
 	const Comp = asChild ? Slot : "button";
-	return <Comp className={cn(buttonVariants({ intent, size }), className)} {...rest} />;
+	return <Comp className={cn(buttonVariants({ intent, size, emphasis }), className)} {...rest} />;
 }
