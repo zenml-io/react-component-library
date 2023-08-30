@@ -1,10 +1,17 @@
-import React, { ButtonHTMLAttributes, forwardRef } from "react";
-import { Slot } from "@radix-ui/react-slot";
+import React, { ButtonHTMLAttributes, ReactElement, forwardRef } from "react";
+import { Slot, Slottable } from "@radix-ui/react-slot";
 import { type VariantProps, cva } from "class-variance-authority";
 import { cn } from "../../utilities/index";
+import clsx from "clsx";
+
+function prepareIcon(icon: ReactElement) {
+	return React.cloneElement(icon, {
+		className: cn(icon.props.className)
+	});
+}
 
 const buttonVariants = cva(
-	"transition-all rounded-md duration-200 flex gap-1 items-center font-semibold disabled:pointer-events-none",
+	"transition-all rounded-md duration-200 flex gap-0.5 items-center font-semibold disabled:pointer-events-none",
 	{
 		variants: {
 			emphasis: {
@@ -18,9 +25,9 @@ const buttonVariants = cva(
 				danger: ""
 			},
 			size: {
-				sm: "py-1 px-2 text-text-sm",
-				lg: "py-2 px-3 text-text-md",
-				xl: "py-3 px-5 text-text-lg"
+				sm: "px-1 h-6 text-text-sm",
+				md: "px-2 h-7 text-text-md",
+				lg: "px-4 h-8 text-text-lg"
 			}
 		},
 		compoundVariants: [
@@ -94,17 +101,33 @@ export interface ButtonProps
 	extends ButtonHTMLAttributes<HTMLButtonElement>,
 		VariantProps<typeof buttonVariants> {
 	asChild?: boolean;
+	iconLeft?: ReactElement;
+	iconRight?: ReactElement;
 }
 
 const Button = forwardRef<HTMLButtonElement, ButtonProps>(
-	({ intent, size, className, asChild, emphasis, ...rest }, ref) => {
+	({ intent, size, className, asChild, emphasis, iconLeft, iconRight, children, ...rest }, ref) => {
 		const Comp = asChild ? Slot : "button";
 		return (
 			<Comp
 				ref={ref}
 				className={cn(buttonVariants({ intent, size, emphasis }), className)}
 				{...rest}
-			/>
+			>
+				{iconLeft && prepareIcon(iconLeft)}
+
+				<Slottable>
+					<span
+						className={cn({
+							"px-0.5": !asChild
+						})}
+					>
+						{children}
+					</span>
+				</Slottable>
+
+				{iconRight && prepareIcon(iconRight)}
+			</Comp>
 		);
 	}
 );

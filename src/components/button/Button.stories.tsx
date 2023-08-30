@@ -14,7 +14,7 @@ const meta = {
 			description: "defining the size of the button",
 			control: "select",
 			defaultValue: "sm",
-			options: ["sm", "lg", "xl"]
+			options: ["sm", "md", "lg"]
 		},
 		intent: {
 			description: "defining the intent of the button",
@@ -80,7 +80,7 @@ export const Small: Story = {
 export const Large: Story = {
 	args: {
 		children: "Hello World",
-		size: "lg",
+		size: "md",
 		intent: "primary",
 		emphasis: "bold"
 	}
@@ -89,7 +89,7 @@ export const Large: Story = {
 export const ExtraLarge: Story = {
 	args: {
 		children: "Hello World",
-		size: "xl",
+		size: "lg",
 		intent: "primary",
 		emphasis: "bold"
 	}
@@ -99,7 +99,7 @@ export const Bold: Story = {
 	args: {
 		children: "Hello World",
 		emphasis: "bold",
-		size: "xl",
+		size: "lg",
 		intent: "primary"
 	}
 };
@@ -107,7 +107,7 @@ export const Bold: Story = {
 export const Subtle: Story = {
 	args: {
 		children: "Hello World",
-		size: "xl",
+		size: "lg",
 		emphasis: "subtle",
 		intent: "primary"
 	}
@@ -116,7 +116,7 @@ export const Subtle: Story = {
 export const Minimal: Story = {
 	args: {
 		children: "Hello World",
-		size: "xl",
+		size: "lg",
 		intent: "primary",
 		emphasis: "minimal"
 	}
