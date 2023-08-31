@@ -2,16 +2,9 @@ import React, { ButtonHTMLAttributes, ReactElement, forwardRef } from "react";
 import { Slot, Slottable } from "@radix-ui/react-slot";
 import { type VariantProps, cva } from "class-variance-authority";
 import { cn } from "../../utilities/index";
-import clsx from "clsx";
-
-function prepareIcon(icon: ReactElement) {
-	return React.cloneElement(icon, {
-		className: cn(icon.props.className)
-	});
-}
 
 const buttonVariants = cva(
-	"transition-all rounded-md duration-200 flex gap-0.5 items-center font-semibold disabled:pointer-events-none",
+	"group transition-all rounded-md duration-200 flex gap-0.5 items-center font-semibold disabled:pointer-events-none",
 	{
 		variants: {
 			emphasis: {
@@ -97,6 +90,38 @@ const buttonVariants = cva(
 	}
 );
 
+const iconVariants = cva("w-5 h-5", {
+	variants: {
+		emphasis: {
+			bold: "",
+			subtle: "",
+			minimal: ""
+		},
+		intent: {
+			primary: "fill-white",
+			secondary: "fill-primary-900 group-disabled:fill-neutral-300 ",
+			danger: "fill-white"
+		}
+	},
+	compoundVariants: [
+		{
+			emphasis: "subtle",
+			intent: "primary",
+			className: "fill-primary-600 group-disabled:fill-primary-100"
+		}
+	],
+	defaultVariants: {
+		emphasis: "bold",
+		intent: "primary"
+	}
+});
+
+function prepareIcon(icon: any, cva: VariantProps<typeof iconVariants>) {
+	return React.cloneElement(icon, {
+		className: cn(iconVariants({ intent: cva.intent, emphasis: cva.emphasis }))
+	});
+}
+
 export interface ButtonProps
 	extends ButtonHTMLAttributes<HTMLButtonElement>,
 		VariantProps<typeof buttonVariants> {
@@ -114,7 +139,7 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>(
 				className={cn(buttonVariants({ intent, size, emphasis }), className)}
 				{...rest}
 			>
-				{iconLeft && prepareIcon(iconLeft)}
+				{iconLeft && prepareIcon(iconLeft, { emphasis, intent })}
 
 				<Slottable>
 					<span
@@ -126,7 +151,7 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>(
 					</span>
 				</Slottable>
 
-				{iconRight && prepareIcon(iconRight)}
+				{iconRight && prepareIcon(iconRight, { emphasis, intent })}
 			</Comp>
 		);
 	}
