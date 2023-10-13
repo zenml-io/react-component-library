@@ -1,5 +1,5 @@
 import { Meta } from "@storybook/react";
-import { Button } from "./Button";
+import { Button } from "./index";
 import { StoryObj } from "@storybook/react";
 
 const meta = {

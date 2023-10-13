@@ -25,6 +25,16 @@
 				"default": "./dist/index.cjs"
 			}
 		},
+		"./tailwind": {
+			"import": {
+				"types": "./dist/tailwind/index.d.ts",
+				"default": "./dist/tailwind/index.js"
+			},
+			"require": {
+				"types": "./dist/tailwind/index.d.cts",
+				"default": "./dist/tailwind/index.cjs"
+			}
+		},
 		"./utilities": {
 			"import": {
 				"types": "./dist/utilities/index.d.ts",
@@ -33,6 +43,16 @@
 			"require": {
 				"types": "./dist/utilities/index.d.cts",
 				"default": "./dist/utilities/index.cjs"
+			}
+		},
+		"./components/*": {
+			"import": {
+				"types": "./dist/components/*/index.d.ts",
+				"default": "./dist/components/*/index.js"
+			},
+			"require": {
+				"types": "./dist/components/*/index.d.cts",
+				"default": "./dist/components/*/index.cjs"
 			}
 		}
 	},
