@@ -4,7 +4,7 @@ import { type VariantProps, cva } from "class-variance-authority";
 import { cn } from "../../utilities/index";
 
 const buttonVariants = cva(
-	"group transition-all rounded-md duration-200 flex gap-0.5 items-center font-semibold disabled:pointer-events-none",
+	"transition-all rounded-md duration-200 flex gap-0.5 items-center font-semibold disabled:pointer-events-none",
 	{
 		variants: {
 			emphasis: {
