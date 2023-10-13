@@ -45,14 +45,14 @@
 				"default": "./dist/utilities/index.cjs"
 			}
 		},
-		"./components/*": {
+		"./components": {
 			"import": {
-				"types": "./dist/components/*/index.d.ts",
-				"default": "./dist/components/*/index.js"
+				"types": "./dist/components/index.d.ts",
+				"default": "./dist/components/index.js"
 			},
 			"require": {
-				"types": "./dist/components/*/index.d.cts",
-				"default": "./dist/components/*/index.cjs"
+				"types": "./dist/components/index.d.cts",
+				"default": "./dist/components/index.cjs"
 			}
 		}
 	},
