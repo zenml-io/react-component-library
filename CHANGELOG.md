@@ -1,5 +1,13 @@
 # @zenml-io/react-component-library
 
+## 0.2.2
+
+### Patch Changes
+
+- 277a992: adjust font-sizes in button
+- 6ad93d5: make tailwindcss a peer dependency
+- e3013cf: add ref to button component
+
 ## 0.2.1
 
 ### Patch Changes
