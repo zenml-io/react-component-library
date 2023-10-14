@@ -132,3 +132,4 @@ dist
 
 dist
 storybook-static
+src/icons/*.tsx
