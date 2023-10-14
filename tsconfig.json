@@ -10,7 +10,7 @@
 		"sourceMap": true,
 		"lib": ["DOM", "ESNext", "DOM.Iterable"],
 		"outDir": "dist",
-		"moduleResolution": "node",
+		"moduleResolution": "Bundler",
 		"emitDeclarationOnly": true,
 		"allowSyntheticDefaultImports": true,
 		"forceConsistentCasingInFileNames": true

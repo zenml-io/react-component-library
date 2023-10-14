@@ -13,7 +13,13 @@ const reactPureCalls = [
 ];
 
 export default defineConfig({
-	entry: ["src/index.ts", "src/utilities/index.ts"],
+	entry: [
+		"src/index.ts",
+		"src/utilities/index.ts",
+		"src/tailwind/index.ts",
+		"src/components/index.ts"
+		// "src/components/**/index.{ts,tsx}"
+	],
 	treeshake: true,
 	external: ["react"],
 	format: ["cjs", "esm"],
