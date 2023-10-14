@@ -17,7 +17,8 @@ export default defineConfig({
 		"src/index.ts",
 		"src/utilities/index.ts",
 		"src/tailwind/index.ts",
-		"src/components/index.ts"
+		"src/components/index.ts",
+		"src/icons/index.tsx"
 		// "src/components/**/index.{ts,tsx}"
 	],
 	treeshake: true,
