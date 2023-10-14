@@ -238,6 +238,9 @@ export const zenmlPlugin = plugin(
 						25: "hsl(var(--color-blue-025) / <alpha-value>)"
 					}
 				},
+				boxShadow: {
+					sm: "0px 0px 4px 0px rgba(0, 0, 0, 0.10)"
+				},
 				backgroundImage: {
 					"gradient-dark":
 						"linear-gradient(to bottom right, hsl(var(--color-primary-500)), hsl(var(--color-primary-400)))"
