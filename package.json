@@ -83,8 +83,8 @@
 		"prepare": "husky install",
 		"prepublishOnly": "pnpm build",
 		"publint": "publint",
-		"storybook": "storybook dev -p 6006",
-		"storybook:build": "storybook build",
+		"storybook": "npm run build:icons && storybook dev -p 6006",
+		"storybook:build": "npm run build:icons && storybook build",
 		"storybook:publish": "npm run storybook:build && touch ./storybook-static/.nojekyll"
 	},
 	"lint-staged": {
