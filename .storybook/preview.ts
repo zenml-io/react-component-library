@@ -7,6 +7,11 @@ import "../src/index.css";
 
 const preview: Preview = {
 	parameters: {
+		options: {
+			storySort: {
+				order: ["Introduction", "Docs", "Design System", "Elements"]
+			}
+		},
 		actions: { argTypesRegex: "^on[A-Z].*" },
 		controls: {
 			matchers: {
