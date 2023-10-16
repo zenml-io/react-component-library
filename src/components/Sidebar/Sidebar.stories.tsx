@@ -1,6 +1,6 @@
 import { Meta } from "@storybook/react";
 import React from "react";
-import { Sidebar } from "./index";
+import { Sidebar, SidebarMain, SidebarHeader, SidebarItem } from "./index";
 import CPU from "../../../.storybook/assets/CPU";
 import { StoryObj } from "@storybook/react";
 import { AppShell } from "../../../.storybook/assets/Appshell";
@@ -26,8 +26,15 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const small: Story = {
-	name: "Sidebar"
-	// args: {
-	// 	children: <SidebarItem icon={<CPU className="w-5 h-5" />} label="Models" />
-	// }
+	name: "Sidebar",
+	args: {
+		children: (
+			<>
+				<SidebarHeader title="Adam" />
+				<SidebarMain>
+					<SidebarItem href="#" icon={<CPU className="w-5 h-5" />} label="Models" />
+				</SidebarMain>
+			</>
+		)
+	}
 };
