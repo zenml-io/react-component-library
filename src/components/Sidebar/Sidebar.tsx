@@ -1,15 +1,17 @@
-import React, { ReactNode, cloneElement, isValidElement } from "react";
+import React, { HTMLAttributes, ReactNode, cloneElement, isValidElement } from "react";
 import { Slot } from "@radix-ui/react-slot";
 import { cn } from "../../utilities/index";
 
-type SidebarProps = {
-	children?: React.ReactNode;
-};
-
-export function Sidebar({ children }: SidebarProps) {
+export function Sidebar({ className, children, ...rest }: HTMLAttributes<HTMLElement>) {
 	return (
-		<nav className="group flex-1 h-full flex w-9 hover:w-[220px] bg-neutral-100 transition-all overflow-x-hidden duration-300 flex-col items-center border-r border-theme-border-moderate">
-			<div className="flex flex-col h-full w-full">{children}</div>
+		<nav
+			className={cn(
+				"group flex-1 h-full flex w-9 hover:w-[220px] bg-neutral-100 transition-all overflow-x-hidden duration-300 flex-col items-center border-r border-theme-border-moderate",
+				className
+			)}
+			{...rest}
+		>
+			<div className="flex flex-col h-full flex-1 w-full">{children}</div>
 		</nav>
 	);
 }
@@ -41,8 +43,17 @@ export function SidebarHeader({ title, icon }: SidebarHeaderProps) {
 	);
 }
 
-export function SidebarMain({ children }: { children?: React.ReactNode }) {
-	return <ul className="px-1 py-2 flex gap-0.5 w-full flex-col items-center">{children}</ul>;
+export function SidebarBody({ className, ...rest }: HTMLAttributes<HTMLDivElement>) {
+	return <div className={cn(`flex-1 flex flex-col w-full`, className)} {...rest} />;
+}
+
+export function SidebarList({ className, ...rest }: HTMLAttributes<HTMLUListElement>) {
+	return (
+		<ul
+			className={cn("px-1 py-2 flex gap-0.5 w-full flex-col items-center", className)}
+			{...rest}
+		/>
+	);
 }
 
 export function SidebarItem({
@@ -53,12 +64,14 @@ export function SidebarItem({
 	isActive?: boolean;
 }) {
 	return (
-		<Slot
-			className={`flex p-2 items-center gap-2 rounded-md w-full ${
-				isActive ? "bg-theme-surface-primary" : "hover:bg-neutral-200 active:bg-neutral-300"
-			}`}
-			{...rest}
-		></Slot>
+		<li className="w-full">
+			<Slot
+				className={`flex p-2 items-center gap-2 rounded-md w-full ${
+					isActive ? "bg-theme-surface-primary" : "hover:bg-neutral-200 active:bg-neutral-300"
+				}`}
+				{...rest}
+			></Slot>
+		</li>
 	);
 }
 
