@@ -1,5 +1,6 @@
 import React, { ReactNode, cloneElement, isValidElement } from "react";
 import { Slot } from "@radix-ui/react-slot";
+import { cn } from "../../utilities/index";
 
 type SidebarProps = {
 	children?: React.ReactNode;
@@ -15,16 +16,27 @@ export function Sidebar({ children }: SidebarProps) {
 
 type SidebarHeaderProps = {
 	title: string;
+	icon?: React.ReactNode;
 };
 
-export function SidebarHeader({ title }: SidebarHeaderProps) {
+export function SidebarHeader({ title, icon }: SidebarHeaderProps) {
+	const existingIconClasses = isValidElement(icon) ? icon.props.className || "" : "";
+
+	const iconClasses = cn(
+		existingIconClasses,
+		"w-6 ml-auto shrink-0 h-6 opacity-0 group-hover:opacity-100  duration-300 transition-all"
+	);
+
 	return (
-		<div className="bg-theme-surface-primary flex items-center whitespace-nowrap gap-1 p-3 border-b border-theme-border-moderate">
+		<div className="bg-theme-surface-primary flex items-center whitespace-nowrap p-3 border-b border-theme-border-moderate">
 			<img
 				src={`https://avatar.vercel.sh/${title}?size=32`}
 				className="w-6 h-6 bg-primary-400 rounded-sm shrink-0"
 			/>
-			<p className="opacity-0 group-hover:opacity-100 duration-300 transition-all">{title}</p>
+			<p className="opacity-0 group-hover:opacity-100 ml-1 truncate duration-300 transition-all">
+				{title}
+			</p>
+			{icon && cloneElement(icon as React.ReactElement, { className: iconClasses })}
 		</div>
 	);
 }
@@ -42,7 +54,7 @@ export function SidebarItem({
 }) {
 	return (
 		<Slot
-			className={`flex p-2 items-center  gap-2 rounded-md w-full ${
+			className={`flex p-2 items-center gap-2 rounded-md w-full ${
 				isActive ? "bg-theme-surface-primary" : "hover:bg-neutral-200 active:bg-neutral-300"
 			}`}
 			{...rest}
@@ -59,9 +71,10 @@ type SidebarItemContentProps = {
 export function SidebarItemContent({ icon, label, isActive }: SidebarItemContentProps) {
 	const existingIconClasses = isValidElement(icon) ? icon.props.className || "" : "";
 
-	const iconClasses = `${existingIconClasses} w-5 h-5 shrink-0 ${
-		isActive ? "stroke-primary-400" : "stroke-theme-text-tertiary"
-	}`;
+	const iconClasses = cn(
+		existingIconClasses,
+		`w-5 h-5 shrink-0 ${isActive ? "stroke-primary-400" : "stroke-theme-text-tertiary"}	`
+	);
 	return (
 		<>
 			{cloneElement(icon as React.ReactElement, { className: iconClasses })}

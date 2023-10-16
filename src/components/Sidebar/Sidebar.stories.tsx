@@ -1,7 +1,7 @@
 import { Meta } from "@storybook/react";
 import React from "react";
-import { Sidebar, SidebarMain, SidebarHeader, SidebarItem } from "./index";
-import CPU from "../../../.storybook/assets/CPU";
+import { Sidebar, SidebarMain, SidebarHeader, SidebarItem, SidebarItemContent } from "./index";
+import { CPU, CloseButton } from "../../../.storybook/assets/icons";
 import { StoryObj } from "@storybook/react";
 import { AppShell } from "../../../.storybook/assets/Appshell";
 
@@ -30,9 +30,23 @@ export const small: Story = {
 	args: {
 		children: (
 			<>
-				<SidebarHeader title="Adam" />
+				<SidebarHeader icon={<CloseButton />} title="ZenML Tenant" />
 				<SidebarMain>
-					<SidebarItem href="#" icon={<CPU className="w-5 h-5" />} label="Models" />
+					<SidebarItem isActive={true}>
+						<div>
+							<SidebarItemContent isActive={true} icon={<CPU />} label="Models" />
+						</div>
+					</SidebarItem>
+					<SidebarItem isActive={false}>
+						<div>
+							<SidebarItemContent isActive={false} icon={<CPU />} label="Models" />
+						</div>
+					</SidebarItem>
+					<SidebarItem isActive={false}>
+						<div>
+							<SidebarItemContent isActive={false} icon={<CPU />} label="Models" />
+						</div>
+					</SidebarItem>
 				</SidebarMain>
 			</>
 		)
