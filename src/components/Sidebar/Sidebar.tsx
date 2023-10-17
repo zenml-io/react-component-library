@@ -1,5 +1,11 @@
-import React, { HTMLAttributes, ReactNode, cloneElement, isValidElement } from "react";
-import { Slot } from "@radix-ui/react-slot";
+import React, {
+	HTMLAttributes,
+	PropsWithChildren,
+	ReactNode,
+	cloneElement,
+	isValidElement
+} from "react";
+import { Slot, Slottable } from "@radix-ui/react-slot";
 import { cn } from "../../utilities/index";
 
 export function Sidebar({ className, children, ...rest }: HTMLAttributes<HTMLElement>) {
@@ -21,7 +27,11 @@ type SidebarHeaderProps = {
 	icon?: React.ReactNode;
 };
 
-export function SidebarHeader({ title, icon }: SidebarHeaderProps) {
+export function SidebarHeaderImage({ children }: PropsWithChildren) {
+	return <Slot className="w-6 h-6 rounded-sm shrink-0">{children}</Slot>;
+}
+
+export function SidebarHeader({ title, icon, children }: PropsWithChildren<SidebarHeaderProps>) {
 	const existingIconClasses = isValidElement(icon) ? icon.props.className || "" : "";
 
 	const iconClasses = cn(
@@ -31,10 +41,7 @@ export function SidebarHeader({ title, icon }: SidebarHeaderProps) {
 
 	return (
 		<div className="bg-theme-surface-primary flex items-center whitespace-nowrap p-3 border-b border-theme-border-moderate">
-			<img
-				src={`https://avatar.vercel.sh/${title}?size=32`}
-				className="w-6 h-6 bg-primary-400 rounded-sm shrink-0"
-			/>
+			{children}
 			<p className="opacity-0 group-hover:opacity-100 ml-1 truncate duration-300 transition-all">
 				{title}
 			</p>

@@ -6,7 +6,8 @@ import {
 	SidebarHeader,
 	SidebarItem,
 	SidebarItemContent,
-	SidebarBody
+	SidebarBody,
+	SidebarHeaderImage
 } from "./index";
 import { CPU, CloseButton } from "../../../.storybook/assets/icons";
 import { StoryObj } from "@storybook/react";
@@ -32,12 +33,16 @@ export default meta;
 
 type Story = StoryObj<typeof meta>;
 
-export const small: Story = {
+export const defaultStory: Story = {
 	name: "Sidebar",
 	args: {
 		children: (
 			<>
-				<SidebarHeader icon={<CloseButton />} title="ZenML Tenant" />
+				<SidebarHeader icon={<CloseButton />} title="ZenML Tenant">
+					<SidebarHeaderImage>
+						<img src={`https://avatar.vercel.sh/ZenMLTenant?size=32`} />
+					</SidebarHeaderImage>
+				</SidebarHeader>
 				<SidebarBody>
 					<SidebarList>
 						<SidebarItem isActive={true}>
