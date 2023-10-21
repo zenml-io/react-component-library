@@ -73,7 +73,7 @@ export const zenmlPlugin = plugin(
 				"--color-blue-025": "208 88% 90%",
 				"--color-text-primary": "var(--color-primary-900)",
 				"--color-text-secondary": "var(--color-neutral-500)",
-				"--color-text-tertiary": "var(--color-neutral-300)",
+				"--color-text-tertiary": "var(--color-neutral-400)",
 				"--color-text-negative": "var(--color-neutral-000)",
 				"--color-text-brand": "var(--color-primary-500)",
 				"--color-text-error": "var(--color-error-500)",
