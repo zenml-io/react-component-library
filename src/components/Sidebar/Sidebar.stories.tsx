@@ -69,7 +69,7 @@ export const defaultStory: Story = {
 							</SidebarItem>
 						</li>
 					</SidebarList>
-					<div className="px-1 py-2 flex gap-0.5" style={{ marginTop: "auto" }}>
+					<div style={{ marginTop: "auto" }}>
 						<SidebarItem>
 							<div>
 								<SidebarItemContent isActive={false} icon={<CPU />} label="Models" />

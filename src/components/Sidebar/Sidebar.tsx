@@ -34,11 +34,6 @@ export function SidebarHeaderImage({ children }: PropsWithChildren) {
 	return <Slot className="w-6 h-6 rounded-sm shrink-0">{children}</Slot>;
 }
 
-export type SidebarHeaderProps = HTMLAttributes<HTMLDivElement> & {
-	title: string;
-	icon?: ReactNode;
-};
-
 export const SidebarHeaderTitle = forwardRef<
 	HTMLParagraphElement,
 	HTMLAttributes<HTMLParagraphElement>
@@ -56,6 +51,11 @@ export const SidebarHeaderTitle = forwardRef<
 ));
 
 SidebarHeaderTitle.displayName = "SidebarHeaderTitle";
+
+export type SidebarHeaderProps = HTMLAttributes<HTMLDivElement> & {
+	title: string;
+	icon?: ReactNode;
+};
 
 export const SidebarHeader = forwardRef<HTMLDivElement, SidebarHeaderProps>(
 	({ title, icon, children, className, ...rest }, ref) => {
@@ -87,7 +87,9 @@ SidebarHeader.displayName = "SidebarHeader";
 
 export const SidebarBody = forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivElement>>(
 	({ className, ...rest }, ref) => {
-		return <div ref={ref} className={cn(`flex-1 flex flex-col w-full`, className)} {...rest} />;
+		return (
+			<div ref={ref} className={cn(`flex-1 flex px-1 py-2 flex-col w-full`, className)} {...rest} />
+		);
 	}
 );
 export const SidebarList = forwardRef<HTMLUListElement, HTMLAttributes<HTMLUListElement>>(
@@ -95,7 +97,7 @@ export const SidebarList = forwardRef<HTMLUListElement, HTMLAttributes<HTMLUList
 		return (
 			<ul
 				ref={ref}
-				className={cn("px-1 py-2 flex gap-0.5 w-full flex-col items-center", className)}
+				className={cn("flex gap-0.5 w-full flex-col items-center", className)}
 				{...rest}
 			/>
 		);
