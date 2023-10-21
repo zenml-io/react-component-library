@@ -2,6 +2,7 @@ import React, {
 	HTMLAttributes,
 	HTMLProps,
 	PropsWithChildren,
+	ReactElement,
 	ReactNode,
 	cloneElement,
 	forwardRef,
@@ -35,8 +36,26 @@ export function SidebarHeaderImage({ children }: PropsWithChildren) {
 
 export type SidebarHeaderProps = HTMLAttributes<HTMLDivElement> & {
 	title: string;
-	icon?: React.ReactNode;
+	icon?: ReactNode;
 };
+
+export const SidebarHeaderTitle = forwardRef<
+	HTMLParagraphElement,
+	HTMLAttributes<HTMLParagraphElement>
+>(({ children, className, ...rest }, ref) => (
+	<p
+		ref={ref}
+		{...rest}
+		className={cn(
+			"opacity-0 group-hover:opacity-100 ml-1 truncate duration-300 transition-all",
+			className
+		)}
+	>
+		{children}
+	</p>
+));
+
+SidebarHeaderTitle.displayName = "SidebarHeaderTitle";
 
 export const SidebarHeader = forwardRef<HTMLDivElement, SidebarHeaderProps>(
 	({ title, icon, children, className, ...rest }, ref) => {
@@ -57,10 +76,8 @@ export const SidebarHeader = forwardRef<HTMLDivElement, SidebarHeaderProps>(
 				)}
 			>
 				{children}
-				<p className="opacity-0 group-hover:opacity-100 ml-1 truncate duration-300 transition-all">
-					{title}
-				</p>
-				{icon && cloneElement(icon as React.ReactElement, { className: iconClasses })}
+
+				{icon && cloneElement(icon as ReactElement, { className: iconClasses })}
 			</div>
 		);
 	}
@@ -73,7 +90,6 @@ export const SidebarBody = forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivElem
 		return <div ref={ref} className={cn(`flex-1 flex flex-col w-full`, className)} {...rest} />;
 	}
 );
-
 export const SidebarList = forwardRef<HTMLUListElement, HTMLAttributes<HTMLUListElement>>(
 	({ className, ...rest }, ref) => {
 		return (
@@ -92,25 +108,22 @@ export type SidebarItemProps = HTMLAttributes<HTMLLIElement> & {
 	isActive?: boolean;
 };
 
-export const SidebarItem = forwardRef<HTMLLIElement, SidebarItemProps>(
-	({ isActive, className, ...rest }, ref) => {
-		return (
-			<li ref={ref} className={cn("w-full", className)}>
-				<Slot
-					className={`flex p-2 items-center gap-2 rounded-md w-full ${
-						isActive ? "bg-theme-surface-primary" : "hover:bg-neutral-200 active:bg-neutral-300"
-					}`}
-					{...rest}
-				></Slot>
-			</li>
-		);
-	}
-);
-
-SidebarItem.displayName = "SidebarItem";
+export function SidebarItem({
+	isActive = false,
+	...rest
+}: PropsWithChildren<{ isActive?: boolean }>) {
+	return (
+		<Slot
+			className={`flex p-2 items-center gap-2 rounded-md w-full ${
+				isActive ? "bg-theme-surface-primary" : "hover:bg-neutral-200 active:bg-neutral-300"
+			}`}
+			{...rest}
+		></Slot>
+	);
+}
 
 type SidebarItemContentProps = {
-	icon: React.ReactNode;
+	icon: ReactNode;
 	label: string;
 	isActive?: boolean;
 };
@@ -124,7 +137,7 @@ export function SidebarItemContent({ icon, label, isActive }: SidebarItemContent
 	);
 	return (
 		<>
-			{cloneElement(icon as React.ReactElement, { className: iconClasses })}
+			{cloneElement(icon as ReactElement, { className: iconClasses })}
 			<div className="opacity-0 group-hover:opacity-100 duration-300 transition-all">{label}</div>
 		</>
 	);

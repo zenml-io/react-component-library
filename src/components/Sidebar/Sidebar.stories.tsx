@@ -2,12 +2,13 @@ import { Meta } from "@storybook/react";
 import React from "react";
 import {
 	Sidebar,
-	SidebarList,
 	SidebarHeader,
 	SidebarItem,
 	SidebarItemContent,
 	SidebarBody,
-	SidebarHeaderImage
+	SidebarHeaderImage,
+	SidebarHeaderTitle,
+	SidebarList
 } from "./index";
 import { CPU, CloseButton } from "../../../.storybook/assets/icons";
 import { StoryObj } from "@storybook/react";
@@ -42,33 +43,38 @@ export const defaultStory: Story = {
 					<SidebarHeaderImage>
 						<img src={`https://avatar.vercel.sh/ZenMLTenant?size=32`} />
 					</SidebarHeaderImage>
+					<SidebarHeaderTitle>My Tenant</SidebarHeaderTitle>
 				</SidebarHeader>
 				<SidebarBody>
 					<SidebarList>
-						<SidebarItem isActive={true}>
-							<div>
-								<SidebarItemContent isActive={true} icon={<CPU />} label="Models" />
-							</div>
-						</SidebarItem>
-						<SidebarItem isActive={false}>
-							<div>
-								<SidebarItemContent isActive={false} icon={<CPU />} label="Models" />
-							</div>
-						</SidebarItem>
-						<SidebarItem isActive={false}>
-							<div>
-								<SidebarItemContent isActive={false} icon={<CPU />} label="Models" />
-							</div>
-						</SidebarItem>
-					</SidebarList>
-					<div style={{ marginTop: "auto" }}>
-						<SidebarList>
-							<SidebarItem>
+						<li className="w-full">
+							<SidebarItem isActive={true}>
+								<div>
+									<SidebarItemContent isActive={true} icon={<CPU />} label="Models" />
+								</div>
+							</SidebarItem>
+						</li>
+						<li className="w-full">
+							<SidebarItem isActive={false}>
 								<div>
 									<SidebarItemContent isActive={false} icon={<CPU />} label="Models" />
 								</div>
 							</SidebarItem>
-						</SidebarList>
+						</li>
+						<li className="w-full">
+							<SidebarItem isActive={false}>
+								<div>
+									<SidebarItemContent isActive={false} icon={<CPU />} label="Models" />
+								</div>
+							</SidebarItem>
+						</li>
+					</SidebarList>
+					<div className="px-1 py-2 flex gap-0.5" style={{ marginTop: "auto" }}>
+						<SidebarItem>
+							<div>
+								<SidebarItemContent isActive={false} icon={<CPU />} label="Models" />
+							</div>
+						</SidebarItem>
 					</div>
 				</SidebarBody>
 			</>
