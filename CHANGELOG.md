@@ -1,5 +1,11 @@
 # @zenml-io/react-component-library
 
+## 0.3.0
+
+### Minor Changes
+
+- ab3189e: Initialize Sidebar Component
+
 ## 0.2.2
 
 ### Patch Changes
