@@ -1,5 +1,11 @@
 # @zenml-io/react-component-library
 
+## 0.3.2
+
+### Patch Changes
+
+- d541014: remove dimenstions from SidebarHeader Icon
+
 ## 0.3.1
 
 ### Patch Changes
