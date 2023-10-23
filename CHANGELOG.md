@@ -1,5 +1,11 @@
 # @zenml-io/react-component-library
 
+## 0.3.1
+
+### Patch Changes
+
+- d24b001: minor adjustments to tailwind config
+
 ## 0.3.0
 
 ### Minor Changes
