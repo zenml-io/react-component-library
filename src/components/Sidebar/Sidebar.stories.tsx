@@ -39,7 +39,7 @@ export const defaultStory: Story = {
 	args: {
 		children: (
 			<>
-				<SidebarHeader icon={<CloseButton />} title="ZenML Tenant">
+				<SidebarHeader icon={<CloseButton className="w-6 h-6" />} title="ZenML Tenant">
 					<SidebarHeaderImage>
 						<img src={`https://avatar.vercel.sh/ZenMLTenant?size=32`} />
 					</SidebarHeaderImage>
@@ -50,21 +50,21 @@ export const defaultStory: Story = {
 						<li className="w-full">
 							<SidebarItem isActive={true}>
 								<div>
-									<SidebarItemContent isActive={true} icon={<CPU />} label="Models" />
+									<SidebarItemContent svgStroke isActive={true} icon={<CPU />} label="Models" />
 								</div>
 							</SidebarItem>
 						</li>
 						<li className="w-full">
 							<SidebarItem isActive={false}>
 								<div>
-									<SidebarItemContent isActive={false} icon={<CPU />} label="Models" />
+									<SidebarItemContent svgStroke isActive={false} icon={<CPU />} label="Models" />
 								</div>
 							</SidebarItem>
 						</li>
 						<li className="w-full">
 							<SidebarItem isActive={false}>
 								<div>
-									<SidebarItemContent isActive={false} icon={<CPU />} label="Models" />
+									<SidebarItemContent svgStroke isActive={false} icon={<CPU />} label="Models" />
 								</div>
 							</SidebarItem>
 						</li>
@@ -72,7 +72,7 @@ export const defaultStory: Story = {
 					<div style={{ marginTop: "auto" }}>
 						<SidebarItem>
 							<div>
-								<SidebarItemContent isActive={false} icon={<CPU />} label="Models" />
+								<SidebarItemContent svgStroke isActive={false} icon={<CPU />} label="Models" />
 							</div>
 						</SidebarItem>
 					</div>

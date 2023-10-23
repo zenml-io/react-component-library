@@ -25,7 +25,7 @@ export const sidebarHeader: Story = {
 	name: "Sidebar Header",
 	args: {
 		title: "ZenML Tenant",
-		icon: <CloseButton />,
+		icon: <CloseButton className="w-6 h-6" />,
 		children: (
 			<SidebarHeaderImage>
 				<img src={`https://avatar.vercel.sh/ZenMLTenant?size=32`} />
