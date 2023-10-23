@@ -62,7 +62,7 @@ export const SidebarHeader = forwardRef<HTMLDivElement, SidebarHeaderProps>(
 
 		const iconClasses = cn(
 			existingIconClasses,
-			"w-6 ml-auto shrink-0 h-6 opacity-0 group-hover:opacity-100  duration-300 transition-all"
+			"ml-auto shrink-0 opacity-0 group-hover:opacity-100  duration-300 transition-all"
 		);
 
 		return (

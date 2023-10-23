@@ -27,7 +27,7 @@ export const inactive: Story = {
 		isActive: false,
 		children: (
 			<div>
-				<SidebarItemContent icon={<CPU />} label="Models" />
+				<SidebarItemContent svgStroke icon={<CPU />} label="Models" />
 			</div>
 		)
 	}
@@ -39,7 +39,7 @@ export const active: Story = {
 		isActive: true,
 		children: (
 			<div>
-				<SidebarItemContent isActive={true} icon={<CPU />} label="Models" />
+				<SidebarItemContent svgStroke isActive={true} icon={<CPU />} label="Models" />
 			</div>
 		)
 	}
