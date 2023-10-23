@@ -53,12 +53,11 @@ export const SidebarHeaderTitle = forwardRef<
 SidebarHeaderTitle.displayName = "SidebarHeaderTitle";
 
 export type SidebarHeaderProps = HTMLAttributes<HTMLDivElement> & {
-	title: string;
 	icon?: ReactNode;
 };
 
 export const SidebarHeader = forwardRef<HTMLDivElement, SidebarHeaderProps>(
-	({ title, icon, children, className, ...rest }, ref) => {
+	({ icon, children, className, ...rest }, ref) => {
 		const existingIconClasses = isValidElement(icon) ? icon.props.className || "" : "";
 
 		const iconClasses = cn(

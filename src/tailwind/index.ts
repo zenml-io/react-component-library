@@ -240,7 +240,8 @@ export const zenmlPlugin = plugin(
 				},
 				backgroundImage: {
 					"gradient-dark":
-						"linear-gradient(to bottom right, hsl(var(--color-primary-500)), hsl(var(--color-primary-400)))"
+						"linear-gradient(to bottom right, hsl(var(--color-primary-500)), hsl(var(--color-primary-400)))",
+					"gradient-light": "linear-gradient(to bottom, hsl(258, 100%, 97%), hsl(0, 100%, 100%))"
 				},
 				animation: {
 					"spin-slow": "spin 2s linear infinite"
