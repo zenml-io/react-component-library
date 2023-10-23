@@ -128,14 +128,28 @@ type SidebarItemContentProps = {
 	icon: ReactNode;
 	label: string;
 	isActive?: boolean;
+	svgStroke?: boolean;
 };
 
-export function SidebarItemContent({ icon, label, isActive }: SidebarItemContentProps) {
+export function SidebarItemContent({
+	icon,
+	label,
+	isActive,
+	svgStroke = false
+}: SidebarItemContentProps) {
 	const existingIconClasses = isValidElement(icon) ? icon.props.className || "" : "";
 
 	const iconClasses = cn(
 		existingIconClasses,
-		`w-5 h-5 shrink-0 ${isActive ? "stroke-primary-400" : "stroke-theme-text-tertiary"}	`
+		`w-5 h-5 shrink-0 ${
+			svgStroke
+				? isActive
+					? "stroke-primary-400"
+					: "stroke-theme-text-tertiary"
+				: isActive
+				? "fill-primary-400"
+				: "fill-theme-text-tertiary"
+		}	`
 	);
 	return (
 		<>
