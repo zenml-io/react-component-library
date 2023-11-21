@@ -104,6 +104,17 @@ export const zenmlPlugin = plugin(
 				"--color-lime-100": "96 71% 77%",
 				"--color-lime-050": "96 72% 85%",
 				"--color-lime-025": "96 70% 91%",
+				"--color-magenta-900": "337 61% 12%",
+				"--color-magenta-800": "338 61% 20%",
+				"--color-magenta-700": "338 60% 30%",
+				"--color-magenta-600": "338 60% 40%",
+				"--color-magenta-500": "338 60% 50%",
+				"--color-magenta-400": "338 90% 60%",
+				"--color-magenta-300": "338 91% 67%",
+				"--color-magenta-200": "338 90% 73%",
+				"--color-magenta-100": "338 90% 80%",
+				"--color-magenta-050": "338 91% 87%",
+				"--color-magenta-025": "337 90% 92%",
 				"--color-text-primary": "var(--color-primary-900)",
 				"--color-text-secondary": "var(--color-neutral-500)",
 				"--color-text-tertiary": "var(--color-neutral-400)",
@@ -308,6 +319,19 @@ export const zenmlPlugin = plugin(
 						100: "hsl(var(--color-lime-100) / <alpha-value>)",
 						50: "hsl(var(--color-lime-050) / <alpha-value>)",
 						25: "hsl(var(--color-lime-025) / <alpha-value>)"
+					},
+					magenta: {
+						900: "hsl(var(--color-magenta-900) / <alpha-value>)",
+						800: "hsl(var(--color-magenta-800) / <alpha-value>)",
+						700: "hsl(var(--color-magenta-700) / <alpha-value>)",
+						600: "hsl(var(--color-magenta-600) / <alpha-value>)",
+						500: "hsl(var(--color-magenta-500) / <alpha-value>)",
+						400: "hsl(var(--color-magenta-400) / <alpha-value>)",
+						300: "hsl(var(--color-magenta-300) / <alpha-value>)",
+						200: "hsl(var(--color-magenta-200) / <alpha-value>)",
+						100: "hsl(var(--color-magenta-100) / <alpha-value>)",
+						50: "hsl(var(--color-magenta-050) / <alpha-value>)",
+						25: "hsl(var(--color-magenta-025) / <alpha-value>)"
 					}
 				},
 				backgroundImage: {
