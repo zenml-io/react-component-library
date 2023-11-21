@@ -71,6 +71,17 @@ export const zenmlPlugin = plugin(
 				"--color-blue-100": "208 89% 75%",
 				"--color-blue-050": "209 90% 84%",
 				"--color-blue-025": "208 88% 90%",
+				"--color-teal-900": "180 61% 8%",
+				"--color-teal-800": "180 59% 14%",
+				"--color-teal-700": "180 60% 20%",
+				"--color-teal-600": "180 61% 27%",
+				"--color-teal-500": "180 60% 34%",
+				"--color-teal-400": "180 60% 41%",
+				"--color-teal-300": "180 41% 51%",
+				"--color-teal-200": "180 42% 60%",
+				"--color-teal-100": "180 41% 70%",
+				"--color-teal-050": "180 41% 80%",
+				"--color-teal-025": "180 41% 88%",
 				"--color-text-primary": "var(--color-primary-900)",
 				"--color-text-secondary": "var(--color-neutral-500)",
 				"--color-text-tertiary": "var(--color-neutral-400)",
@@ -236,6 +247,19 @@ export const zenmlPlugin = plugin(
 						100: "hsl(var(--color-blue-100) / <alpha-value>)",
 						50: "hsl(var(--color-blue-050) / <alpha-value>)",
 						25: "hsl(var(--color-blue-025) / <alpha-value>)"
+					},
+					teal: {
+						900: "hsl(var(--color-teal-900) / <alpha-value>)",
+						800: "hsl(var(--color-teal-800) / <alpha-value>)",
+						700: "hsl(var(--color-teal-700) / <alpha-value>)",
+						600: "hsl(var(--color-teal-600) / <alpha-value>)",
+						500: "hsl(var(--color-teal-500) / <alpha-value>)",
+						400: "hsl(var(--color-teal-400) / <alpha-value>)",
+						300: "hsl(var(--color-teal-300) / <alpha-value>)",
+						200: "hsl(var(--color-teal-200) / <alpha-value>)",
+						100: "hsl(var(--color-teal-100) / <alpha-value>)",
+						50: "hsl(var(--color-teal-050) / <alpha-value>)",
+						25: "hsl(var(--color-teal-025) / <alpha-value>)"
 					}
 				},
 				backgroundImage: {
