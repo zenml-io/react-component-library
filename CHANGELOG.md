@@ -1,5 +1,11 @@
 # @zenml-io/react-component-library
 
+## 0.4.0
+
+### Minor Changes
+
+- 73566b7: add new colors
+
 ## 0.3.2
 
 ### Patch Changes
