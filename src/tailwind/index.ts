@@ -93,6 +93,17 @@ export const zenmlPlugin = plugin(
 				"--color-turquoise-100": "189 45% 72%",
 				"--color-turquoise-050": "190 45% 81%",
 				"--color-turquoise-025": "192 46% 89%",
+				"--color-lime-900": "96 60% 11%",
+				"--color-lime-800": "96 61% 18%",
+				"--color-lime-700": "96 60% 27%",
+				"--color-lime-600": "96 60% 36%",
+				"--color-lime-500": "96 60% 45%",
+				"--color-lime-400": "96 72% 54%",
+				"--color-lime-300": "96 71% 62%",
+				"--color-lime-200": "96 72% 70%",
+				"--color-lime-100": "96 71% 77%",
+				"--color-lime-050": "96 72% 85%",
+				"--color-lime-025": "96 70% 91%",
 				"--color-text-primary": "var(--color-primary-900)",
 				"--color-text-secondary": "var(--color-neutral-500)",
 				"--color-text-tertiary": "var(--color-neutral-400)",
@@ -284,6 +295,19 @@ export const zenmlPlugin = plugin(
 						100: "hsl(var(--color-turquoise-100) / <alpha-value>)",
 						50: "hsl(var(--color-turquoise-050) / <alpha-value>)",
 						25: "hsl(var(--color-turquoise-025) / <alpha-value>)"
+					},
+					lime: {
+						900: "hsl(var(--color-lime-900) / <alpha-value>)",
+						800: "hsl(var(--color-lime-800) / <alpha-value>)",
+						700: "hsl(var(--color-lime-700) / <alpha-value>)",
+						600: "hsl(var(--color-lime-600) / <alpha-value>)",
+						500: "hsl(var(--color-lime-500) / <alpha-value>)",
+						400: "hsl(var(--color-lime-400) / <alpha-value>)",
+						300: "hsl(var(--color-lime-300) / <alpha-value>)",
+						200: "hsl(var(--color-lime-200) / <alpha-value>)",
+						100: "hsl(var(--color-lime-100) / <alpha-value>)",
+						50: "hsl(var(--color-lime-050) / <alpha-value>)",
+						25: "hsl(var(--color-lime-025) / <alpha-value>)"
 					}
 				},
 				backgroundImage: {
