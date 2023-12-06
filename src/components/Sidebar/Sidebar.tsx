@@ -91,6 +91,9 @@ export const SidebarBody = forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivElem
 		);
 	}
 );
+
+SidebarBody.displayName = "SidebarBody";
+
 export const SidebarList = forwardRef<HTMLUListElement, HTMLAttributes<HTMLUListElement>>(
 	({ className, ...rest }, ref) => {
 		return (
