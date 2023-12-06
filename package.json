@@ -74,7 +74,8 @@
 		"publint": "publint",
 		"storybook": "storybook dev -p 6006",
 		"storybook:build": "storybook build",
-		"storybook:publish": "npm run storybook:build && touch ./storybook-static/.nojekyll"
+		"storybook:publish": "npm run storybook:build && touch ./storybook-static/.nojekyll",
+		"test": "vitest run"
 	},
 	"lint-staged": {
 		"*.{css,js,md,ts,jsx,tsx,ts}": "prettier --write"
@@ -106,7 +107,8 @@
 		"storybook": "^7.3.1",
 		"tailwindcss": "^3.3.3",
 		"tsup": "^7.2.0",
-		"typescript": "^5.1.6"
+		"typescript": "^5.1.6",
+		"vitest": "^1.0.1"
 	},
 	"peerDependencies": {
 		"@types/react": "^18.0.0",
