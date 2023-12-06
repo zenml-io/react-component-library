@@ -1,6 +1,5 @@
 import React, {
 	HTMLAttributes,
-	HTMLProps,
 	PropsWithChildren,
 	ReactElement,
 	ReactNode,
@@ -11,7 +10,7 @@ import React, {
 import { Slot } from "@radix-ui/react-slot";
 import { cn } from "../../utilities/index";
 
-export const Sidebar = forwardRef<HTMLDivElement, HTMLProps<HTMLDivElement>>(
+export const Sidebar = forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivElement>>(
 	({ className, children, ...rest }, ref) => {
 		return (
 			<nav
