@@ -1,31 +1,38 @@
-## Fixes Issue
+## Fixes Issue / Ticket
 
-<!-- Remove this section if not applicable -->
+<!-- Link to Github Issue or Jira ticket -->
 
-<!-- Example: Closes #31 or link to Jira -->
+## Description
 
-## Changes proposed
+✨ [Provide a brief description of the changes introduced by this pull request.]
 
-<!-- List and describe all the proposed changes in your PR -->
+## Checklist
 
-<!-- Mark all the applicable boxes. To mark the box as done follow the following conventions -->
-<!--
-[x] - Correct; marked as done
-[X] - Correct; marked as done
+Please make sure that your pull request complies with the following requirements:
 
-[ ] - Not correct; marked as **not** done
--->
+- [ ] **Code Quality:**
 
-## Check List (Check all the applicable boxes) <!-- Follow the above conventions to check the box -->
+  - [ ] 🧹 Code follows the project's coding guidelines.
 
-- [ ] My code follows the code style of this project.
-- [ ] All new and existing tests passed.
-- [ ] The title of my pull request is a short description of the requested changes.
+- [ ] **Testing:**
 
-## Screenshots
+  - [ ] 🧪️ All existing tests pass successfully.
 
-<!-- Add all the screenshots which support your changes -->
+- [ ] **Documentation:**
 
-## Note to reviewer
+  - [ ] 📖 README and documentation are updated if necessary.
 
-<!-- Add notes to reviewer if applicable -->
+- [ ] **Review:**
+
+  - [ ] 👀 Code has been reviewed by a team member.
+
+- [ ] **Security:**
+  - [ ] 🔒 Changes don't introduce security vulnerabilities.
+
+## Screenshots (optional)
+
+📸 [Include any relevant screenshots or visual representations of the changes.]
+
+## Additional Information
+
+ℹ️ [Provide any additional information that might be useful for the reviewer.]
