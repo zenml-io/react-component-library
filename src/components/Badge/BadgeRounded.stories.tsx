@@ -3,8 +3,14 @@ import { Badge as BadgeComponent } from "./Badge";
 
 const meta = {
 	title: "Elements/Badge/Rounded",
-	component: BadgeComponent
-} as Meta<typeof BadgeComponent>;
+	component: BadgeComponent,
+	argTypes: {
+		rounded: {
+			control: "boolean",
+			defaultValue: true
+		}
+	}
+} satisfies Meta<typeof BadgeComponent>;
 export default meta;
 
 type Story = StoryObj<typeof meta>;
@@ -12,7 +18,7 @@ type Story = StoryObj<typeof meta>;
 export const Default: Story = {
 	args: {
 		children: "Text",
-		rounded: false
+		rounded: true
 	}
 };
 
