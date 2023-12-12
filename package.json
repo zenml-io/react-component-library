@@ -69,15 +69,20 @@
 		"dev": "tsup --watch",
 		"fix:types": "node scripts/fix-type-defs.js",
 		"format": "prettier -w src",
+		"lint": "eslint src --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
 		"prepare": "husky install",
 		"prepublishOnly": "pnpm build",
 		"publint": "publint",
 		"storybook": "storybook dev -p 6006",
 		"storybook:build": "storybook build",
-		"storybook:publish": "npm run storybook:build && touch ./storybook-static/.nojekyll"
+		"storybook:publish": "npm run storybook:build && touch ./storybook-static/.nojekyll",
+		"test": "vitest run"
 	},
 	"lint-staged": {
-		"*.{css,js,md,ts,jsx,tsx,ts}": "prettier --write"
+		"*.{css,js,md,ts,jsx,tsx,ts}": "prettier --write",
+		"*.{js,jsx,ts,tsx}": [
+			"eslint --fix"
+		]
 	},
 	"dependencies": {
 		"@radix-ui/react-alert-dialog": "^1.0.5",
@@ -99,7 +104,12 @@
 		"@storybook/react": "^7.3.1",
 		"@storybook/react-vite": "^7.3.1",
 		"@storybook/testing-library": "^0.2.0",
+		"@typescript-eslint/eslint-plugin": "^6.13.2",
+		"@typescript-eslint/parser": "^6.13.2",
 		"autoprefixer": "^10.4.15",
+		"eslint": "^8.55.0",
+		"eslint-plugin-react": "^7.33.2",
+		"eslint-plugin-storybook": "^0.6.15",
 		"husky": "^8.0.0",
 		"lint-staged": "^14.0.0",
 		"postcss": "^8.4.28",
@@ -109,7 +119,8 @@
 		"storybook": "^7.3.1",
 		"tailwindcss": "^3.3.6",
 		"tsup": "^7.2.0",
-		"typescript": "^5.1.6"
+		"typescript": "^5.1.6",
+		"vitest": "^1.0.1"
 	},
 	"peerDependencies": {
 		"@types/react": "^18.0.0",
