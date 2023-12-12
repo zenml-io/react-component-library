@@ -1,8 +1,8 @@
+import { createTailwindMerge } from "tailwind-merge";
 import { zenmlPreset } from "./src/index";
 
-/** @type {import('tailwindcss').Config} */
 export default {
-	presets: [zenmlPreset],
+	presets: [zenmlPreset, createTailwindMerge],
 	content: ["./src/**/*.{js,ts,jsx,tsx}"],
 	theme: {
 		extend: {}

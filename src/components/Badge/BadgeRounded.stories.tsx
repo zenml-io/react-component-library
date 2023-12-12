@@ -1,10 +1,10 @@
 import { Meta, StoryObj } from "@storybook/react";
-import { Badge } from "./index";
+import { Badge as BadgeComponent } from "./Badge";
 
 const meta = {
-	title: "Elements/Badge",
-	component: Badge
-} satisfies Meta<typeof Badge>;
+	title: "Elements/Badge/Rounded",
+	component: BadgeComponent
+} as Meta<typeof BadgeComponent>;
 export default meta;
 
 type Story = StoryObj<typeof meta>;
@@ -19,16 +19,14 @@ export const Default: Story = {
 export const Capitalized: Story = {
 	args: {
 		children: "Capitalized",
-		capitalized: true,
-		rounded: true
+		capitalized: true
 	}
 };
 
 export const SuccessVariant: Story = {
 	args: {
 		children: "Success",
-		variant: "success",
-		rounded: false
+		variant: "success"
 	}
 };
 

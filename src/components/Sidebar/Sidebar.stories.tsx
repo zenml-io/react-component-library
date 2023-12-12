@@ -9,7 +9,7 @@ import {
 	SidebarHeaderImage,
 	SidebarHeaderTitle,
 	SidebarList
-} from "./index";
+} from "./Sidebar";
 import { CPU, CloseButton } from "../../../.storybook/assets/icons";
 import { StoryObj } from "@storybook/react";
 import { AppShell } from "../../../.storybook/assets/Appshell";

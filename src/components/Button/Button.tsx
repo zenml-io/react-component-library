@@ -4,7 +4,7 @@ import React, { ButtonHTMLAttributes, forwardRef } from "react";
 import { cn } from "../../utilities/index";
 
 const buttonVariants = cva(
-	"transition-all rounded-md duration-200 flex gap-0.5 items-center font-semibold disabled:pointer-events-none",
+	"transition-all rounded-md duration-200 flex  items-center font-semibold disabled:pointer-events-none",
 	{
 		variants: {
 			emphasis: {
@@ -18,9 +18,9 @@ const buttonVariants = cva(
 				danger: ""
 			},
 			size: {
-				sm: "px-1 h-6 text-text-sm",
-				md: "px-2 h-7 text-text-md",
-				lg: "px-4 h-8 text-text-lg"
+				sm: "px-2 h-6 text-text-sm text-sm",
+				md: "px-4 py-4 text-base h-7 text-text-md",
+				lg: "px-6 py-6 text-lg	h-8 text-text-lg"
 			}
 		},
 		compoundVariants: [
