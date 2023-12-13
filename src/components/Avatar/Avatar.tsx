@@ -1,49 +1,89 @@
-import { cva, VariantProps } from "class-variance-authority";
-import { HTMLAttributes } from "react";
+import * as React from "react";
+import * as AvatarPrimitive from "@radix-ui/react-avatar";
 import { cn } from "../../utilities/index";
-import React from "react";
+import { cva, VariantProps } from "class-variance-authority";
 
-const avatar = cva("inline-flex items-center justify-center font-semibold", {
-	defaultVariants: {
-		size: "md",
-		type: "textSquare"
-	},
+const avatarVariants = cva("relative flex shrink-0 overflow-hidden", {
 	variants: {
+		type: { square: "rounded-md", rounded: "rounded-rounded" },
 		size: {
-			xs: "w-5 h-5 text-xs",
-			sm: "w-6 h-6 text-sm",
-			md: "w-8 h-8 text-base",
-			lg: "w-10 h-10 text-lg",
-			xl: "w-16 h-16 text-3xl",
-			xxl: "w-24 h-24 text-4xl"
-		},
-		type: {
-			textSquare: "rounded-lg bg-purple-300 text-theme-text-brand",
-			textCircle: "rounded-full bg-purple-300 p-4",
-			user: "rounded-full p-0 overflow-auto",
-			userSquare: "rounded-lg overflow-auto",
-			ellipsis: "rounded-full bg-slate-200 text-neutral-200 text-slate-500 p-4"
+			xs: "w-3 h-3",
+			sm: "w-5 h-5",
+			md: "w-6 h-6",
+			lg: "w-7 h-7",
+			xl: "w-9 h-9",
+			xxl: "w-12 h-12"
 		}
+	},
+	defaultVariants: {
+		type: "rounded",
+		size: "lg"
 	}
 });
 
-export type AvatarProps = VariantProps<typeof avatar>;
-interface AvatarVariants extends HTMLAttributes<HTMLDivElement>, AvatarProps {}
+const fallbackVariants = cva(
+	"flex aspect-square items-center justify-center bg-primary-50 text-theme-text-brand font-semibold uppercase",
+	{
+		variants: {
+			size: {
+				xs: "text-text-xs",
+				sm: "text-text-xs",
+				md: "text-text-md",
+				lg: "text-text-lg",
+				xl: "text-display-sm",
+				xxl: "text-display-md"
+			}
+		}
+	}
+);
 
-export const Avatar: React.FC<AvatarVariants> = ({
-	children,
-	className,
-	size,
-	type,
-	...rest
-}: AvatarVariants) => {
-	return (
-		<div className="w-full justify-center flex">
-			<div {...rest} className={cn(avatar({ size, type }), className)}>
-				{children}
-			</div>
-		</div>
-	);
+const Avatar = React.forwardRef<
+	React.ElementRef<typeof AvatarPrimitive.Root>,
+	React.ComponentPropsWithoutRef<typeof AvatarPrimitive.Root> & VariantProps<typeof avatarVariants>
+>(({ className, size, type, ...props }, ref) => (
+	<AvatarPrimitive.Root
+		ref={ref}
+		className={cn(avatarVariants({ size, type }), className)}
+		{...props}
+	/>
+));
+Avatar.displayName = AvatarPrimitive.Root.displayName;
+
+const AvatarImage = React.forwardRef<
+	React.ElementRef<typeof AvatarPrimitive.Image>,
+	React.ComponentPropsWithoutRef<typeof AvatarPrimitive.Image>
+>(({ ...props }, ref) => (
+	<AvatarPrimitive.Image ref={ref} className={cn("aspect-square h-full w-full")} {...props} />
+));
+AvatarImage.displayName = AvatarPrimitive.Image.displayName;
+
+const AvatarFallback = React.forwardRef<
+	React.ElementRef<typeof AvatarPrimitive.Fallback>,
+	React.ComponentPropsWithoutRef<typeof AvatarPrimitive.Fallback> &
+		VariantProps<typeof fallbackVariants>
+>(({ className, size, ...props }, ref) => (
+	<AvatarPrimitive.Fallback
+		ref={ref}
+		className={cn(fallbackVariants({ size }), className)}
+		{...props}
+	/>
+));
+AvatarFallback.displayName = AvatarPrimitive.Fallback.displayName;
+
+export { Avatar, AvatarImage, AvatarFallback };
+
+export type CompleteAvatarProps = {
+	avatarUrl: string;
+	fallbackValue: string;
 };
 
-export default Avatar;
+export const CompleteAvatar = React.forwardRef<
+	React.ElementRef<typeof AvatarPrimitive.Root>,
+	VariantProps<typeof avatarVariants> & CompleteAvatarProps
+>(({ avatarUrl, fallbackValue, size, type }, ref) => (
+	<Avatar ref={ref} size={size} type={type}>
+		<AvatarImage src={avatarUrl} />
+		<AvatarFallback size={size}>{fallbackValue}</AvatarFallback>
+	</Avatar>
+));
+CompleteAvatar.displayName = AvatarPrimitive.Fallback.displayName;

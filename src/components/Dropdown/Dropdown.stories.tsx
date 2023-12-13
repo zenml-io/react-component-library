@@ -1,5 +1,5 @@
 import React from "react";
-import { Meta, Story } from "@storybook/react";
+import { Meta, StoryObj } from "@storybook/react";
 import {
 	DropdownMenu,
 	DropdownMenuTrigger,
@@ -9,8 +9,8 @@ import {
 	DropdownMenuSeparator
 } from "./Dropdown";
 
-export default {
-	title: "DropdownMenu",
+const meta = {
+	title: "Elements/Dropdown/Dropdown",
 	component: DropdownMenu,
 	subcomponents: {
 		Trigger: DropdownMenuTrigger,
@@ -18,24 +18,35 @@ export default {
 		Item: DropdownMenuItem,
 		Label: DropdownMenuLabel,
 		Separator: DropdownMenuSeparator
-	}
+	},
+	parameters: {
+		layout: "centered"
+	},
+	tags: ["autodocs"]
 } as Meta;
+export default meta;
 
-const Template: Story = (args) => (
-	<DropdownMenu {...args}>
-		<DropdownMenuTrigger>
-			<button>Trigger</button>
-		</DropdownMenuTrigger>
-		<DropdownMenuContent>
-			<DropdownMenuItem>Item 1</DropdownMenuItem>
-			<DropdownMenuItem>Item 2</DropdownMenuItem>
-			<DropdownMenuSeparator />
-			<DropdownMenuItem>Item 3</DropdownMenuItem>
-			<DropdownMenuLabel>Label</DropdownMenuLabel>
-			<DropdownMenuItem>Item 4</DropdownMenuItem>
-		</DropdownMenuContent>
-	</DropdownMenu>
-);
+type Story = StoryObj<typeof meta>;
 
-export const Basic = Template.bind({});
-Basic.args = {};
+export const Default: Story = {
+	args: {
+		size: "xs",
+		type: "square",
+		children: "Settings"
+	},
+	render: (args) => (
+		<DropdownMenu {...args}>
+			<DropdownMenuTrigger>
+				<button>{args.children}</button>
+			</DropdownMenuTrigger>
+			<DropdownMenuContent>
+				<DropdownMenuItem>Item 1</DropdownMenuItem>
+				<DropdownMenuItem>Item 2</DropdownMenuItem>
+				<DropdownMenuSeparator />
+				<DropdownMenuItem>Item 3</DropdownMenuItem>
+				<DropdownMenuLabel>Label</DropdownMenuLabel>
+				<DropdownMenuItem>Item 4</DropdownMenuItem>
+			</DropdownMenuContent>
+		</DropdownMenu>
+	)
+};

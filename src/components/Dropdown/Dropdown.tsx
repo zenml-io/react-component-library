@@ -1,9 +1,9 @@
-import * as React from "react";
+/* eslint-disable react/prop-types */
 import { Slottable } from "@radix-ui/react-slot";
 import * as DropdownMenuPrimitive from "@radix-ui/react-dropdown-menu";
 import { cn } from "../../utilities/index";
 import * as RDialog from "@radix-ui/react-alert-dialog";
-import { forwardRef } from "react";
+import React, { forwardRef } from "react";
 
 const DropdownMenu = DropdownMenuPrimitive.Root;
 
@@ -198,7 +198,7 @@ const DialogItem = forwardRef<React.ElementRef<typeof DropdownMenuPrimitive.Item
 					<DropdownMenuItem
 						{...itemProps}
 						className="hover:cursor-pointer"
-						icon={props.icon}
+						icon={icon}
 						ref={forwardedRef}
 						onSelect={(event) => {
 							event.preventDefault();
