@@ -8,6 +8,20 @@ const meta = {
 	parameters: {
 		layout: "centered"
 	},
+	argTypes: {
+		size: {
+			description: "defining the size of the avatar",
+			control: "select",
+			defaultValue: "lg",
+			options: ["xs", "sm", "md", "lg", "xl", "xxl"]
+		},
+		type: {
+			description: "defining the type of the avatar",
+			control: "select",
+			defaultValue: "rounded",
+			options: ["square", "rounded"]
+		}
+	},
 	tags: ["autodocs"]
 } as Meta<typeof Avatar>;
 export default meta;

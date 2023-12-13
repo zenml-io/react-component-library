@@ -7,6 +7,14 @@ const meta = {
 	parameters: {
 		layout: "centered"
 	},
+	argTypes: {
+		size: {
+			description: "defining the size of the avatar",
+			control: "select",
+			defaultValue: "lg",
+			options: ["sm", "md", "lg"]
+		}
+	},
 	tags: ["autodocs"]
 } as Meta<typeof InputComponent>;
 export default meta;

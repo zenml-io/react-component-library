@@ -60,4 +60,3 @@ export const DisabledVariant: Story = {
 		variant: "disabled"
 	}
 };
-DisabledVariant;
