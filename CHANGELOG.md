@@ -1,5 +1,11 @@
 # @zenml-io/react-component-library
 
+## 0.4.1
+
+### Patch Changes
+
+- 09d7d30: export buttonVariants
+
 ## 0.4.0
 
 ### Minor Changes
