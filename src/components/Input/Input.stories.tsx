@@ -6,11 +6,6 @@ const meta = {
 	title: "Elements/Input",
 	component: Input,
 	argTypes: {
-		label: {
-			control: "text",
-			defaultValue: "Label",
-			description: "Label of the input"
-		},
 		disabled: {
 			control: "boolean",
 			defaultValue: false,
@@ -31,17 +26,15 @@ type Story = StoryObj<typeof meta>;
 export const small: Story = {
 	name: "Small",
 	args: {
-		placeholder: "Your input",
-		inputSize: "sm",
-		label: "Small Input"
+		placeholder: "Small input",
+		inputSize: "sm"
 	}
 };
 
 export const medium: Story = {
 	name: "Medium",
 	args: {
-		label: "Medium Input",
-		placeholder: "Your input",
+		placeholder: "Medium input",
 		inputSize: "md"
 	}
 };
@@ -49,8 +42,8 @@ export const medium: Story = {
 export const large: Story = {
 	name: "Large",
 	args: {
-		label: "Large Input",
-		placeholder: "Your input",
-		inputSize: "lg"
+		placeholder: "Large input",
+		inputSize: "lg",
+		disabled: true
 	}
 };
