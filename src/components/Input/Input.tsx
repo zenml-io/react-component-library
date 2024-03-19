@@ -2,7 +2,7 @@ import { cva, VariantProps } from "class-variance-authority";
 import React, { forwardRef, InputHTMLAttributes } from "react";
 import { cn } from "../../utilities";
 
-const inputVariants = cva(
+export const inputVariants = cva(
 	cn([
 		"transition-all duration-200 rounded-md bg-theme-surface-primary",
 		"border-[#D0D5DD] border",
