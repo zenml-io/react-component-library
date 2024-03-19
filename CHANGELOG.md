@@ -1,5 +1,35 @@
 # @zenml-io/react-component-library
 
+## 0.4.1
+
+### Patch Changes
+
+- 09d7d30: export buttonVariants
+
+## 0.4.0
+
+### Minor Changes
+
+- 73566b7: add new colors
+
+## 0.3.2
+
+### Patch Changes
+
+- d541014: remove dimenstions from SidebarHeader Icon
+
+## 0.3.1
+
+### Patch Changes
+
+- d24b001: minor adjustments to tailwind config
+
+## 0.3.0
+
+### Minor Changes
+
+- ab3189e: Initialize Sidebar Component
+
 ## 0.2.2
 
 ### Patch Changes

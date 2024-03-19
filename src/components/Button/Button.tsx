@@ -3,7 +3,7 @@ import { cva, type VariantProps } from "class-variance-authority";
 import React, { ButtonHTMLAttributes, forwardRef } from "react";
 import { cn } from "../../utilities/index";
 
-const buttonVariants = cva(
+export const buttonVariants = cva(
 	"transition-all rounded-md duration-200 flex gap-0.5 items-center font-semibold disabled:pointer-events-none",
 	{
 		variants: {
