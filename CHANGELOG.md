@@ -1,5 +1,12 @@
 # @zenml-io/react-component-library
 
+## 0.5.0
+
+### Minor Changes
+
+- 291eb80: add box component
+- 8608cf6: add input component
+
 ## 0.4.1
 
 ### Patch Changes
