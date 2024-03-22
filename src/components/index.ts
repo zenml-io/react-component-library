@@ -3,3 +3,4 @@ export * from "./Input";
 export * from "./Sidebar";
 export * from "./Box";
 export * from "./Avatar";
+export * from "./Skeleton";
