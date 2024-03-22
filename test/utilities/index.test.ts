@@ -17,4 +17,8 @@ describe("cn", () => {
 	test("should replace undefined classes", () => {
 		expect(cn("text-white", undefined)).toBe("text-white");
 	});
+
+	test("custom font sizes", () => {
+		expect(cn("text-text-md", "text-display-xs")).toBe("text-display-xs");
+	});
 });
