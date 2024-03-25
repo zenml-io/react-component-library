@@ -1,5 +1,13 @@
 # @zenml-io/react-component-library
 
+## 0.6.0
+
+### Minor Changes
+
+- caf5c23: add loading skeleton
+- 656180c: add avatar component
+- 29ade64: add dropdown component
+
 ## 0.5.0
 
 ### Minor Changes
