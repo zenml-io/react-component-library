@@ -4,3 +4,4 @@ export * from "./Sidebar";
 export * from "./Box";
 export * from "./Avatar";
 export * from "./Skeleton";
+export * from "./Dropdown";
