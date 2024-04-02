@@ -5,3 +5,4 @@ export * from "./Box";
 export * from "./Avatar";
 export * from "./Skeleton";
 export * from "./Dropdown";
+export * from "./Table";
