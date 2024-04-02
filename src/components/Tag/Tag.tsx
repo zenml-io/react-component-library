@@ -2,9 +2,10 @@ import { VariantProps, cva } from "class-variance-authority";
 import React, { HTMLAttributes, forwardRef } from "react";
 import { cn } from "../../utilities";
 
-export const tagVariants = cva("shrink-0 text-text-sm py-0.5 px-1", {
+export const tagVariants = cva("shrink-0 flex items-center justify-center gap-0.5 py-0.5 px-1", {
 	variants: {
 		rounded: { false: "rounded-md", true: "rounded-rounded" },
+		size: { sm: "h-6  text-text-sm", xs: "h-5 text-text-xs" },
 		emphasis: {
 			bold: "",
 			subtle: "border",
@@ -203,7 +204,8 @@ export const tagVariants = cva("shrink-0 text-text-sm py-0.5 px-1", {
 		}
 	],
 	defaultVariants: {
-		rounded: true
+		rounded: true,
+		size: "sm"
 	}
 });
 
@@ -212,11 +214,11 @@ export interface TagProps
 		VariantProps<typeof tagVariants> {}
 
 export const Tag = forwardRef<HTMLDivElement, TagProps>(
-	({ className, rounded, emphasis, color, ...rest }, ref) => {
+	({ className, rounded, emphasis, color, size, ...rest }, ref) => {
 		return (
 			<div
 				{...rest}
-				className={cn(tagVariants({ rounded, emphasis, color }), className)}
+				className={cn(tagVariants({ rounded, emphasis, color, size }), className)}
 				ref={ref}
 			></div>
 		);

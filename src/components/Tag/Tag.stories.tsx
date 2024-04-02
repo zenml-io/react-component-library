@@ -10,6 +10,11 @@ const meta = {
 			control: "boolean",
 			defaultValue: true
 		},
+		size: {
+			control: "select",
+			defaultValue: "sm",
+			options: ["sm", "xs"]
+		},
 		emphasis: {
 			control: "select",
 			defaultValue: "subtle",
@@ -47,6 +52,7 @@ type Story = StoryObj<typeof meta>;
 export const minimal: Story = {
 	name: "Minimal",
 	args: {
+		size: "sm",
 		rounded: true,
 		emphasis: "minimal",
 		color: "magenta",
@@ -57,6 +63,7 @@ export const minimal: Story = {
 export const subtle: Story = {
 	name: "Subtle",
 	args: {
+		size: "sm",
 		rounded: true,
 		emphasis: "subtle",
 		color: "magenta",
@@ -67,6 +74,7 @@ export const subtle: Story = {
 export const bold: Story = {
 	name: "Bold",
 	args: {
+		size: "sm",
 		rounded: true,
 		emphasis: "bold",
 		color: "magenta",
