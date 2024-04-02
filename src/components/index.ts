@@ -6,3 +6,4 @@ export * from "./Avatar";
 export * from "./Skeleton";
 export * from "./Dropdown";
 export * from "./Table";
+export * from "./Tag";
