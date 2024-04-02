@@ -1,5 +1,12 @@
 # @zenml-io/react-component-library
 
+## 0.7.0
+
+### Minor Changes
+
+- 48dc80c: add tag component
+- dac3259: add table components
+
 ## 0.6.0
 
 ### Minor Changes
