@@ -7,3 +7,4 @@ export * from "./Skeleton";
 export * from "./Dropdown";
 export * from "./Table";
 export * from "./Tag";
+export * from "./Badge";
