@@ -359,7 +359,8 @@ export const zenmlPlugin = plugin(
 					}
 				},
 				boxShadow: {
-					sm: "0px 0px 4px 0px rgba(0, 0, 0, 0.10)"
+					sm: "0px 0px 4px 0px rgba(0, 0, 0, 0.10)",
+					inner: "inset 0 -2px 0 0,0 2px 0 0"
 				},
 				backgroundImage: {
 					"gradient-dark":
