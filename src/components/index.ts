@@ -9,3 +9,4 @@ export * from "./Table";
 export * from "./Tag";
 export * from "./Badge";
 export * from "./Spinner";
+export * from "./Collapsible";
