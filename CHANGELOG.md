@@ -1,5 +1,14 @@
 # @zenml-io/react-component-library
 
+## 0.8.0
+
+### Minor Changes
+
+- e8808ae: add tabs
+- d46d3d4: add spinner component
+- 60de2b9: add collapsible component
+- b568987: add badge component
+
 ## 0.7.0
 
 ### Minor Changes
