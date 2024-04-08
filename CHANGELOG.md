@@ -1,5 +1,11 @@
 # @zenml-io/react-component-library
 
+## 0.9.1
+
+### Patch Changes
+
+- 847418f: export badge props
+
 ## 0.9.0
 
 ### Minor Changes
