@@ -36,11 +36,11 @@ export const badgeVariants = cva("inline-flex items-center", {
 	}
 });
 
-interface ButtonVariants
+export interface BadgeProps
 	extends Omit<HTMLAttributes<HTMLDivElement>, "color">,
 		VariantProps<typeof badgeVariants> {}
 
-export function Badge({ children, className, color, rounded, size, ...rest }: ButtonVariants) {
+export function Badge({ children, className, color, rounded, size, ...rest }: BadgeProps) {
 	return (
 		<div {...rest} className={cn(badgeVariants({ color, rounded, size }), className)}>
 			{children}
