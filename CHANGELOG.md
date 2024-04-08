@@ -1,5 +1,12 @@
 # @zenml-io/react-component-library
 
+## 0.9.0
+
+### Minor Changes
+
+- 952c199: add tooltip
+- f1b1d71: add sheet component
+
 ## 0.8.0
 
 ### Minor Changes
