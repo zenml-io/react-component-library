@@ -59,10 +59,6 @@ const SheetContent = React.forwardRef<
 		<SheetOverlay />
 		<SheetPrimitive.Content ref={ref} className={cn(sheetVariants({ side }), className)} {...props}>
 			{children}
-			{/* <SheetPrimitive.Close className="ring-offset-background focus:ring-ring data-[state=open]:bg-secondary absolute right-4 top-4 rounded-sm opacity-70 transition-opacity hover:opacity-100 focus:outline-none focus:ring-2 focus:ring-offset-2 disabled:pointer-events-none">
-				<DoubleChevronRight className="h-5 w-5 fill-neutral-500" />
-				<span className="sr-only">Close</span>
-			</SheetPrimitive.Close> */}
 		</SheetPrimitive.Content>
 	</SheetPortal>
 ));
