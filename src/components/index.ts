@@ -13,3 +13,4 @@ export * from "./Spinner";
 export * from "./Tabs";
 export * from "./Collapsible";
 export * from "./Tooltip";
+export * from "./Checkbox";
