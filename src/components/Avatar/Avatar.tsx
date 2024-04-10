@@ -77,4 +77,20 @@ const AvatarFallback = React.forwardRef<
 ));
 AvatarFallback.displayName = AvatarPrimitive.Fallback.displayName;
 
-export { Avatar, AvatarImage, AvatarFallback };
+type CompleteAvatarProps = {
+	avatarUrl: string;
+	fallbackValue: string;
+};
+
+const CompleteAvatar = React.forwardRef<
+	React.ElementRef<typeof AvatarPrimitive.Root>,
+	VariantProps<typeof avatarVariants> & CompleteAvatarProps
+>(({ avatarUrl, fallbackValue, size, type }, ref) => (
+	<Avatar ref={ref} size={size} type={type}>
+		<AvatarImage src={avatarUrl} />
+		<AvatarFallback size={size}>{fallbackValue}</AvatarFallback>
+	</Avatar>
+));
+CompleteAvatar.displayName = "Complete Avatar";
+
+export { Avatar, AvatarImage, AvatarFallback, CompleteAvatar };
