@@ -1,5 +1,12 @@
 # @zenml-io/react-component-library
 
+## 0.10.0
+
+### Minor Changes
+
+- 49804fb: add toast
+- 63baf62: add checkbox component
+
 ## 0.9.1
 
 ### Patch Changes
