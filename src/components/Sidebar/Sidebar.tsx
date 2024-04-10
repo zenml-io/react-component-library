@@ -149,8 +149,8 @@ export function SidebarItemContent({
 					? "stroke-primary-400"
 					: "stroke-theme-text-tertiary"
 				: isActive
-				? "fill-primary-400"
-				: "fill-theme-text-tertiary"
+					? "fill-primary-400"
+					: "fill-theme-text-tertiary"
 		}	`
 	);
 	return (
