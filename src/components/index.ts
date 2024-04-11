@@ -16,3 +16,4 @@ export * from "./Tooltip";
 export * from "./Checkbox";
 export * from "./Toast";
 export * from "./Dialog";
+export * from "./Progress";
