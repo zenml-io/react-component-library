@@ -1,2 +1,2 @@
 export * from "./Sidebar";
-export * from "./Sidebar";
+export * from "./SidebarContext";
