@@ -98,10 +98,10 @@ function SidebarButton() {
 	return (
 		<Button
 			onClick={() => setIsOpen((prev) => !prev)}
-			className={`w-6 ${!isOpen && "bg-transparent"} h-6 p-0 flex items-center justify-center`}
+			className={`w-6 bg-transparent h-6 p-0 flex items-center justify-center`}
 			intent="secondary"
 		>
-			<CloseButton className="w-4 h-4 aspect-square" />
+			<CloseButton className={`w-4 h-4 aspect-square ${!isOpen && "rotate-180"}`} />
 		</Button>
 	);
 }
