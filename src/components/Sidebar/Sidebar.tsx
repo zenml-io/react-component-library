@@ -10,14 +10,17 @@ import React, {
 } from "react";
 import { Slot } from "@radix-ui/react-slot";
 import { cn } from "../../utilities/index";
+import { useSidebarContext } from "./SidebarContext";
 
 export const Sidebar = forwardRef<HTMLDivElement, HTMLProps<HTMLDivElement>>(
 	({ className, children, ...rest }, ref) => {
+		const { isOpen } = useSidebarContext();
+
 		return (
 			<nav
 				ref={ref}
 				className={cn(
-					"group flex-1 h-full flex w-9 hover:w-[220px] bg-neutral-100 transition-all overflow-x-hidden duration-300 flex-col items-center border-r border-theme-border-moderate",
+					`group flex-1 h-full flex w-9 ${isOpen ? "w-[220px]" : "hover:w-[220px]"}  bg-neutral-100 transition-all overflow-x-hidden duration-300 flex-col items-center border-r border-theme-border-moderate`,
 					className
 				)}
 				{...rest}
@@ -37,18 +40,22 @@ export function SidebarHeaderImage({ children }: PropsWithChildren) {
 export const SidebarHeaderTitle = forwardRef<
 	HTMLParagraphElement,
 	HTMLAttributes<HTMLParagraphElement>
->(({ children, className, ...rest }, ref) => (
-	<p
-		ref={ref}
-		{...rest}
-		className={cn(
-			"opacity-0 group-hover:opacity-100 ml-1 truncate duration-300 transition-all",
-			className
-		)}
-	>
-		{children}
-	</p>
-));
+>(({ children, className, ...rest }, ref) => {
+	const { isOpen } = useSidebarContext();
+
+	return (
+		<p
+			ref={ref}
+			{...rest}
+			className={cn(
+				`${!isOpen && "opacity-0 group-hover:opacity-100"} ml-1 truncate duration-300 transition-all`,
+				className
+			)}
+		>
+			{children}
+		</p>
+	);
+});
 
 SidebarHeaderTitle.displayName = "SidebarHeaderTitle";
 
@@ -58,11 +65,13 @@ export type SidebarHeaderProps = HTMLAttributes<HTMLDivElement> & {
 
 export const SidebarHeader = forwardRef<HTMLDivElement, SidebarHeaderProps>(
 	({ icon, children, className, ...rest }, ref) => {
+		const { isOpen } = useSidebarContext();
+
 		const existingIconClasses = isValidElement(icon) ? icon.props.className || "" : "";
 
 		const iconClasses = cn(
 			existingIconClasses,
-			"ml-auto shrink-0 opacity-0 group-hover:opacity-100  duration-300 transition-all"
+			`${!isOpen && "opacity-0 group-hover:opacity-100"} ml-auto shrink-0 duration-300 transition-all`
 		);
 
 		return (
@@ -139,6 +148,7 @@ export function SidebarItemContent({
 	isActive,
 	svgStroke = false
 }: SidebarItemContentProps) {
+	const { isOpen } = useSidebarContext();
 	const existingIconClasses = isValidElement(icon) ? icon.props.className || "" : "";
 
 	const iconClasses = cn(
@@ -156,7 +166,11 @@ export function SidebarItemContent({
 	return (
 		<>
 			{cloneElement(icon as ReactElement, { className: iconClasses })}
-			<div className="opacity-0 group-hover:opacity-100 duration-300 transition-all">{label}</div>
+			<div
+				className={`${!isOpen && "opacity-0 group-hover:opacity-100"} duration-300 transition-all`}
+			>
+				{label}
+			</div>
 		</>
 	);
 }
