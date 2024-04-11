@@ -1,5 +1,16 @@
 # @zenml-io/react-component-library
 
+## 0.11.0
+
+### Minor Changes
+
+- a7b81dc: add progressTick and progressOutstanding
+- 77368cb: add dialog component
+
+### Patch Changes
+
+- b0eed25: add option to keep sidebar open
+
 ## 0.10.0
 
 ### Minor Changes
