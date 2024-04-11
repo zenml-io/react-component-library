@@ -3,6 +3,7 @@ import React from "react";
 import { SidebarItem, SidebarItemContent } from "./Sidebar";
 import { CPU } from "../../../.storybook/assets/icons";
 import { StoryObj } from "@storybook/react";
+import { SidebarProvider } from "./SidebarContext";
 
 const meta = {
 	title: "UI/Sidebar",
@@ -10,7 +11,9 @@ const meta = {
 	decorators: [
 		(Story) => (
 			<ul style={{ listStyle: "none" }} className="group">
-				<Story />
+				<SidebarProvider initialOpen={false}>
+					<Story />
+				</SidebarProvider>
 			</ul>
 		)
 	],

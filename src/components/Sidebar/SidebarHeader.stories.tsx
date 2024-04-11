@@ -3,6 +3,7 @@ import React from "react";
 import { SidebarHeader, SidebarHeaderImage } from "./Sidebar";
 import { CloseButton } from "../../../.storybook/assets/icons";
 import { StoryObj } from "@storybook/react";
+import { SidebarProvider } from "./SidebarContext";
 
 const meta = {
 	title: "UI/Sidebar",
@@ -27,9 +28,11 @@ export const sidebarHeader: Story = {
 		title: "ZenML Tenant",
 		icon: <CloseButton className="w-6 h-6" />,
 		children: (
-			<SidebarHeaderImage>
-				<img src={`https://avatar.vercel.sh/ZenMLTenant?size=32`} />
-			</SidebarHeaderImage>
+			<SidebarProvider initialOpen={false}>
+				<SidebarHeaderImage>
+					<img src={`https://avatar.vercel.sh/ZenMLTenant?size=32`} />
+				</SidebarHeaderImage>
+			</SidebarProvider>
 		)
 	}
 };

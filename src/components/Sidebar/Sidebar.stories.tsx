@@ -10,9 +10,11 @@ import {
 	SidebarHeaderTitle,
 	SidebarList
 } from "./index";
+import { Button } from "../Button";
 import { CPU, CloseButton } from "../../../.storybook/assets/icons";
 import { StoryObj } from "@storybook/react";
 import { AppShell } from "../../../.storybook/assets/Appshell";
+import { SidebarProvider, useSidebarContext } from "./SidebarContext";
 
 const meta = {
 	title: "UI/Sidebar",
@@ -22,9 +24,11 @@ const meta = {
 	},
 	decorators: [
 		(Story) => (
-			<AppShell>
-				<Story />
-			</AppShell>
+			<SidebarProvider initialOpen>
+				<AppShell>
+					<Story />
+				</AppShell>
+			</SidebarProvider>
 		)
 	],
 	tags: ["autodocs"]
@@ -39,7 +43,14 @@ export const defaultStory: Story = {
 	args: {
 		children: (
 			<>
-				<SidebarHeader icon={<CloseButton className="w-6 h-6" />} title="ZenML Tenant">
+				<SidebarHeader
+					icon={
+						<div>
+							<SidebarButton />
+						</div>
+					}
+					title="ZenML Tenant"
+				>
 					<SidebarHeaderImage>
 						<img src={`https://avatar.vercel.sh/ZenMLTenant?size=32`} />
 					</SidebarHeaderImage>
@@ -81,3 +92,16 @@ export const defaultStory: Story = {
 		)
 	}
 };
+
+function SidebarButton() {
+	const { setIsOpen, isOpen } = useSidebarContext();
+	return (
+		<Button
+			onClick={() => setIsOpen((prev) => !prev)}
+			className={`w-6 bg-transparent h-6 p-0 flex items-center justify-center`}
+			intent="secondary"
+		>
+			<CloseButton className={`w-4 h-4 aspect-square ${!isOpen && "rotate-180"}`} />
+		</Button>
+	);
+}
