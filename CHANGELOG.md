@@ -1,5 +1,11 @@
 # @zenml-io/react-component-library
 
+## 0.12.0
+
+### Minor Changes
+
+- 2942753: add select component
+
 ## 0.11.0
 
 ### Minor Changes
