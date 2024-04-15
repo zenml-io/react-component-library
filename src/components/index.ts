@@ -18,3 +18,4 @@ export * from "./Toast";
 export * from "./Dialog";
 export * from "./Progress";
 export * from "./Select";
+export * from "./Switch";
