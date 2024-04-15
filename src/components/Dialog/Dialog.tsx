@@ -50,7 +50,7 @@ DialogContent.displayName = DialogPrimitive.Content.displayName;
 const DialogHeader = ({ className, children, ...props }: React.HTMLAttributes<HTMLDivElement>) => (
 	<div
 		className={cn(
-			" flex items-center justify-between border-b border-theme-border-moderate py-2 pl-5 pr-3",
+			"flex items-center justify-between border-b border-theme-border-moderate py-2 pl-5 pr-3",
 			className
 		)}
 		{...props}

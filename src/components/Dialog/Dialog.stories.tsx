@@ -39,7 +39,7 @@ export const DefaultVariant: Story = {
 				<DialogHeader>
 					<DialogTitle>Dialog Title</DialogTitle>
 				</DialogHeader>
-				<DialogDescription align="center">Dialog Description</DialogDescription>
+				<DialogDescription>Dialog Description</DialogDescription>
 				<DialogFooter>
 					<DialogClose asChild>
 						<Button>Cancel</Button>
