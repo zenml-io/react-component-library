@@ -1,5 +1,11 @@
 # @zenml-io/react-component-library
 
+## 0.13.0
+
+### Minor Changes
+
+- a047290: add switch component
+
 ## 0.12.0
 
 ### Minor Changes
