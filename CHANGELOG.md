@@ -1,5 +1,11 @@
 # @zenml-io/react-component-library
 
+## 0.14.0
+
+### Minor Changes
+
+- b081403: add alert dialog
+
 ## 0.13.0
 
 ### Minor Changes
