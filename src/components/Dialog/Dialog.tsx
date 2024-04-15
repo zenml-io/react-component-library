@@ -50,7 +50,7 @@ DialogContent.displayName = DialogPrimitive.Content.displayName;
 const DialogHeader = ({ className, children, ...props }: React.HTMLAttributes<HTMLDivElement>) => (
 	<div
 		className={cn(
-			" flex items-center justify-between border-b border-theme-border-moderate py-2 pl-5 pr-3",
+			"flex items-center justify-between border-b border-theme-border-moderate py-2 pl-5 pr-3",
 			className
 		)}
 		{...props}
@@ -101,7 +101,11 @@ const DialogDescription = React.forwardRef<
 	React.ElementRef<typeof DialogPrimitive.Description>,
 	React.ComponentPropsWithoutRef<typeof DialogPrimitive.Description>
 >(({ className, ...props }, ref) => (
-	<DialogPrimitive.Description ref={ref} className={cn("", className)} {...props} />
+	<DialogPrimitive.Description
+		ref={ref}
+		className={cn("text-sm text-muted-foreground", className)}
+		{...props}
+	/>
 ));
 DialogDescription.displayName = DialogPrimitive.Description.displayName;
 
