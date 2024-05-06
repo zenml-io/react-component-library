@@ -17,10 +17,10 @@ export default defineConfig({
 		"src/index.ts",
 		"src/utilities/index.ts",
 		"src/tailwind/index.ts",
-		"src/components/index.ts"
-		// "src/components/**/index.{ts,tsx}"
+		"src/components/index.ts",
+		"src/components/**/index.{ts,tsx}"
 	],
-	treeshake: true,
+
 	external: ["react"],
 	format: ["cjs", "esm"],
 	dts: true,
