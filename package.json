@@ -55,14 +55,24 @@
 				"default": "./dist/components/index.cjs"
 			}
 		},
-		"./components/*": {
+		"./components/client": {
 			"import": {
-				"types": "./dist/components/*/index.d.ts",
-				"default": "./dist/components/index.js"
+				"types": "./dist/components/client.d.ts",
+				"default": "./dist/components/client.js"
 			},
 			"require": {
-				"types": "./dist/components/*/index.d.cts",
-				"default": "./dist/components/*/index.cjs"
+				"types": "./dist/components/client.d.cts",
+				"default": "./dist/components/client.cjs"
+			}
+		},
+		"./components/server": {
+			"import": {
+				"types": "./dist/components/server.d.ts",
+				"default": "./dist/components/server.js"
+			},
+			"require": {
+				"types": "./dist/components/server.d.cts",
+				"default": "./dist/components/server.cjs"
 			}
 		}
 	},

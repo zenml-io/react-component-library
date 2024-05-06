@@ -18,7 +18,9 @@ export default defineConfig({
 		"src/utilities/index.ts",
 		"src/tailwind/index.ts",
 		"src/components/index.ts",
-		"src/components/**/index.{ts,tsx}"
+		"src/components/client.ts",
+		"src/components/server.ts"
+		//"src/components/**/index.{ts,tsx}"
 	],
 
 	external: ["react"],
