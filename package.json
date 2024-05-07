@@ -16,64 +16,50 @@
 	"type": "module",
 	"exports": {
 		".": {
-			"import": {
-				"types": "./dist/index.d.ts",
-				"default": "./dist/index.js"
-			},
-			"require": {
-				"types": "./dist/index.d.cts",
-				"default": "./dist/index.cjs"
-			}
+			"import": "./dist/index.js",
+			"require": "./dist/index.cjs"
 		},
 		"./tailwind": {
-			"import": {
-				"types": "./dist/tailwind/index.d.ts",
-				"default": "./dist/tailwind/index.js"
-			},
-			"require": {
-				"types": "./dist/tailwind/index.d.cts",
-				"default": "./dist/tailwind/index.cjs"
-			}
+			"import": "./dist/tailwind/index.js",
+			"require": "./dist/tailwind/index.cjs"
 		},
 		"./utilities": {
-			"import": {
-				"types": "./dist/utilities/index.d.ts",
-				"default": "./dist/utilities/index.js"
-			},
-			"require": {
-				"types": "./dist/utilities/index.d.cts",
-				"default": "./dist/utilities/index.cjs"
-			}
+			"import": "./dist/utilities/index.js",
+			"require": "./dist/utilities/index.cjs"
 		},
 		"./components": {
-			"import": {
-				"types": "./dist/components/index.d.ts",
-				"default": "./dist/components/index.js"
-			},
-			"require": {
-				"types": "./dist/components/index.d.cts",
-				"default": "./dist/components/index.cjs"
-			}
+			"import": "./dist/components/index.js",
+			"require": "./dist/components/index.cjs"
 		},
 		"./components/client": {
-			"import": {
-				"types": "./dist/components/client.d.ts",
-				"default": "./dist/components/client.js"
-			},
-			"require": {
-				"types": "./dist/components/client.d.cts",
-				"default": "./dist/components/client.cjs"
-			}
+			"import": "./dist/components/client.js",
+			"require": "./dist/components/client.cjs"
 		},
 		"./components/server": {
-			"import": {
-				"types": "./dist/components/server.d.ts",
-				"default": "./dist/components/server.js"
-			},
-			"require": {
-				"types": "./dist/components/server.d.cts",
-				"default": "./dist/components/server.cjs"
-			}
+			"import": "./dist/components/server.js",
+			"require": "./dist/components/server.cjs"
+		}
+	},
+	"typesVersions": {
+		"*": {
+			"*": [
+				"dist/index.d.ts"
+			],
+			"tailwind": [
+				"dist/tailwind/index.d.ts"
+			],
+			"utilities": [
+				"dist/utilities/index.d.ts"
+			],
+			"components": [
+				"dist/components/index.d.ts"
+			],
+			"components/client": [
+				"dist/components/client.d.ts"
+			],
+			"components/server": [
+				"dist/components/server.d.ts"
+			]
 		}
 	},
 	"main": "./dist/index.cjs",
