@@ -15,9 +15,9 @@ const reactPureCalls = [
 export default defineConfig({
 	entry: [
 		"src/index.ts",
-		"src/utilities/index.ts",
-		"src/tailwind/index.ts",
-		"src/components/index.ts",
+		"src/utilities.ts",
+		"src/tailwind.ts",
+		"src/components.ts",
 		"src/components/client.ts",
 		"src/components/server.ts"
 		//"src/components/**/index.{ts,tsx}"
