@@ -1,5 +1,11 @@
 # @zenml-io/react-component-library
 
+## 0.16.0
+
+### Minor Changes
+
+- 66cfd52: add entrypoints for nextjs
+
 ## 0.15.0
 
 ### Minor Changes
