@@ -15,3 +15,4 @@ export * from "./Select";
 export * from "./Switch";
 export * from "./AlertDialog";
 export * from "./ScrollArea";
+export * from "./HoverCard";
