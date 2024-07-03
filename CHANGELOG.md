@@ -1,5 +1,11 @@
 # @zenml-io/react-component-library
 
+## 0.17.0
+
+### Minor Changes
+
+- 09c4e2e: add scroll area component
+
 ## 0.16.0
 
 ### Minor Changes
