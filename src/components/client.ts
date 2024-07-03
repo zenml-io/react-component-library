@@ -14,3 +14,4 @@ export * from "./Progress/ProgressBar";
 export * from "./Select";
 export * from "./Switch";
 export * from "./AlertDialog";
+export * from "./ScrollArea";
