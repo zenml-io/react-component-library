@@ -1,5 +1,11 @@
 # @zenml-io/react-component-library
 
+## 0.18.0
+
+### Minor Changes
+
+- ec02574: add hover card component
+
 ## 0.17.0
 
 ### Minor Changes
