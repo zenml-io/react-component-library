@@ -16,3 +16,4 @@ export * from "./Switch";
 export * from "./AlertDialog";
 export * from "./ScrollArea";
 export * from "./HoverCard";
+export * from "./RadioGroup";
