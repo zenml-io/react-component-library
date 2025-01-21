@@ -28,3 +28,9 @@ const customTwMerge = extendTailwindMerge({
 export function cn(...inputs: ClassValue[]) {
 	return customTwMerge(clsx(inputs));
 }
+
+export type Setter<T> = T | ((prevValue: T) => T);
+
+export function getValueFromSetter<T>(newValue: Setter<T>, currValue: T): T {
+	return newValue instanceof Function ? newValue(currValue) : newValue;
+}
