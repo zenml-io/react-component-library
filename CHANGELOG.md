@@ -1,5 +1,11 @@
 # @zenml-io/react-component-library
 
+## 0.19.1
+
+### Patch Changes
+
+- a6ba4d3: sidebar: start closing immediately when "close" button clicked, ignoring hover
+
 ## 0.19.0
 
 ### Minor Changes
