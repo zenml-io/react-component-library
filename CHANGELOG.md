@@ -1,5 +1,11 @@
 # @zenml-io/react-component-library
 
+## 0.19.2
+
+### Patch Changes
+
+- bad93d1: fix: wrap function with useCallback
+
 ## 0.19.1
 
 ### Patch Changes
