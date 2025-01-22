@@ -3,6 +3,7 @@ import React, {
 	PropsWithChildren,
 	SetStateAction,
 	createContext,
+	useCallback,
 	useContext,
 	useState
 } from "react";
@@ -33,7 +34,7 @@ export function SidebarProvider({
 	 * then the sidebar gets automatically closed, instead of waiting for the user
 	 * to hover away from it before closing.
 	 */
-	function setIsOpen(newValue: Setter<boolean>): void {
+	const setIsOpen = useCallback((newValue: Setter<boolean>): void => {
 		_setIsOpen((currIsOpen) => {
 			const value: boolean = getValueFromSetter(newValue, currIsOpen);
 
@@ -44,7 +45,7 @@ export function SidebarProvider({
 
 			return value;
 		});
-	}
+	}, []);
 
 	return (
 		<SidebarContext.Provider value={{ isOpen, setIsOpen, isClosing }}>
