@@ -18,3 +18,4 @@ export * from "./ScrollArea";
 export * from "./HoverCard";
 export * from "./RadioGroup";
 export * from "./Command";
+export * from "./Popover";
