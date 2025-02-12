@@ -14,13 +14,13 @@ import { useSidebarContext } from "./SidebarContext";
 
 export const Sidebar = forwardRef<HTMLDivElement, HTMLProps<HTMLDivElement>>(
 	({ className, children, ...rest }, ref) => {
-		const { isOpen } = useSidebarContext();
+		const { isOpen, isClosing } = useSidebarContext();
 
 		return (
 			<nav
 				ref={ref}
 				className={cn(
-					`group flex-1 h-full flex w-9 ${isOpen ? "w-[220px]" : "hover:w-[220px]"}  bg-neutral-100 transition-all overflow-x-hidden duration-300 flex-col items-center border-r border-theme-border-moderate`,
+					`group flex-1 h-full flex w-9 ${isOpen ? "w-[220px]" : isClosing ? "" : "hover:w-[220px]"}  bg-neutral-100 transition-all overflow-x-hidden duration-300 flex-col items-center border-r border-theme-border-moderate`,
 					className
 				)}
 				{...rest}

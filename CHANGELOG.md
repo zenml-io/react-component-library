@@ -1,5 +1,23 @@
 # @zenml-io/react-component-library
 
+## 0.20.0
+
+### Minor Changes
+
+- 279169d: add command component
+
+## 0.19.2
+
+### Patch Changes
+
+- bad93d1: fix: wrap function with useCallback
+
+## 0.19.1
+
+### Patch Changes
+
+- a6ba4d3: sidebar: start closing immediately when "close" button clicked, ignoring hover
+
 ## 0.19.0
 
 ### Minor Changes
