@@ -1,5 +1,11 @@
 # @zenml-io/react-component-library
 
+## 0.20.0
+
+### Minor Changes
+
+- 279169d: add command component
+
 ## 0.19.2
 
 ### Patch Changes
