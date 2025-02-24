@@ -1,5 +1,11 @@
 # @zenml-io/react-component-library
 
+## 0.22.0
+
+### Minor Changes
+
+- a1501c9: update radix dependencies
+
 ## 0.21.0
 
 ### Minor Changes
