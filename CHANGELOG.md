@@ -1,5 +1,11 @@
 # @zenml-io/react-component-library
 
+## 0.21.0
+
+### Minor Changes
+
+- 669c43a: add popover component
+
 ## 0.20.0
 
 ### Minor Changes
