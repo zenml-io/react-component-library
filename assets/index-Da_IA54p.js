@@ -1,0 +1,1 @@
+import{r as t}from"./index-yUhCOHB4.js";var f=globalThis!=null&&globalThis.document?t.useLayoutEffect:()=>{};function a(u){const e=t.useRef(u);return t.useEffect(()=>{e.current=u}),t.useMemo(()=>(...r)=>{var o;return(o=e.current)==null?void 0:o.call(e,...r)},[])}export{a,f as u};
