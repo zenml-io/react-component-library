@@ -1,8 +1,9 @@
 import { Meta } from "@storybook/react";
 import { StoryObj } from "@storybook/react";
-import React from "react";
+import React, { useState } from "react";
 import { DataTable } from "./index";
-import { ColumnDef } from "@tanstack/react-table";
+import { ColumnDef, RowSelectionState } from "@tanstack/react-table";
+import { Checkbox } from "../Checkbox";
 
 type DummyData = {
 	id: number;
@@ -80,3 +81,76 @@ export const DefaultVariant: Story = {
 		data: data
 	}
 };
+
+export const CustomizedVariant: Story = {
+	name: "Customized",
+	render: () => <CustomizedDataTable />,
+	args: {
+		// provide in component below
+		columns: [],
+		data: []
+	}
+};
+
+const CustomizedDataTable = () => {
+	const [rowSelection, setRowSelection] = useState<RowSelectionState>({});
+
+	return (
+		<div>
+			<DataTable
+				columns={colsCustomized}
+				data={data}
+				getRowId={(x) => x.id.toString()}
+				rowSelection={rowSelection}
+				onRowSelectionChange={setRowSelection}
+			/>
+
+			<div className="mt-4">
+				<p>Selected rows:</p>
+				<div className="flex gap-2">
+					{Object.keys(rowSelection).map((key) => (
+						<span key={key}>{key}</span>
+					))}
+				</div>
+			</div>
+		</div>
+	);
+};
+
+const colsCustomized: ColumnDef<DummyData, unknown>[] = [
+	{
+		id: "select",
+		accessorKey: "select",
+		header: ({ table }) => (
+			<Checkbox
+				id="select-all"
+				checked={table.getIsAllRowsSelected()}
+				onCheckedChange={(state) =>
+					table.toggleAllRowsSelected(state === "indeterminate" ? true : state)
+				}
+			/>
+		),
+		cell: ({ row }) => (
+			<Checkbox
+				id={`select-${row.id}`}
+				checked={row.getIsSelected()}
+				onCheckedChange={row.getToggleSelectedHandler()}
+			/>
+		)
+	},
+	{
+		id: "id",
+		header: "ID",
+		accessorKey: "id"
+	},
+	{
+		id: "name",
+		header: "Name",
+		accessorKey: "name"
+	},
+	{
+		id: "age",
+		header: "Age",
+		accessorKey: "age"
+	}
+];
