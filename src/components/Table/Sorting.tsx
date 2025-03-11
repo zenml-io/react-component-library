@@ -1,11 +1,8 @@
 import React from "react";
-import { Header, RowData /*, SortDirection*/ } from "@tanstack/react-table";
-// TODO FIXME: importing directly not allowed?
-// import ArrowUp from "../../assets/icons/arrow-up.svg";
-// import ArrowDown from "../../assets/icons/arrow-down.svg";
+import { Header, RowData, SortDirection } from "@tanstack/react-table";
 import { PropsWithChildren } from "react";
+import { ArrowUp, ArrowDown } from "./Icons";
 
-/*
 type Props = {
 	direction: SortDirection | false;
 };
@@ -17,7 +14,6 @@ function SortingArrow({ direction }: Props) {
 
 	return <Comp className="h-4 w-4 shrink-0" />;
 }
-*/
 
 interface HeaderProps<TData extends RowData> {
 	header: Header<TData, unknown>;
@@ -35,7 +31,7 @@ export function SortableHeader<TData extends RowData>({
 			onClick={header.column.getToggleSortingHandler()}
 		>
 			<span>{children}</span>
-			{/* <SortingArrow direction={header.column.getIsSorted()} /> */}
+			<SortingArrow direction={header.column.getIsSorted()} />
 		</button>
 	);
 }
