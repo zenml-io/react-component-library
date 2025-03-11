@@ -1,8 +1,8 @@
 import { Meta } from "@storybook/react";
 import { StoryObj } from "@storybook/react";
 import React, { useState } from "react";
-import { DataTable } from "./index";
-import { ColumnDef, RowSelectionState } from "@tanstack/react-table";
+import { DataTable, injectSortingArrowIcons } from "./index";
+import { ColumnDef, RowSelectionState, SortingState } from "@tanstack/react-table";
 import { Checkbox } from "../Checkbox";
 
 type DummyData = {
@@ -92,8 +92,23 @@ export const CustomizedVariant: Story = {
 	}
 };
 
+injectSortingArrowIcons({
+	ArrowUp: () => <div>↑</div>,
+	ArrowDown: () => <div>↓</div>
+});
+
 const CustomizedDataTable = () => {
 	const [rowSelection, setRowSelection] = useState<RowSelectionState>({});
+	const [sorting, setSorting] = useState<SortingState>([
+		{
+			id: "name",
+			desc: true
+		},
+		{
+			id: "age",
+			desc: false
+		}
+	]);
 
 	return (
 		<div>
@@ -103,6 +118,8 @@ const CustomizedDataTable = () => {
 				getRowId={(x) => x.id.toString()}
 				rowSelection={rowSelection}
 				onRowSelectionChange={setRowSelection}
+				sorting={sorting}
+				onSortingChange={setSorting}
 			/>
 
 			<div className="mt-4">
@@ -146,11 +163,13 @@ const colsCustomized: ColumnDef<DummyData, unknown>[] = [
 	{
 		id: "name",
 		header: "Name",
-		accessorKey: "name"
+		accessorKey: "name",
+		enableSorting: true
 	},
 	{
 		id: "age",
 		header: "Age",
-		accessorKey: "age"
+		accessorKey: "age",
+		enableSorting: true
 	}
 ];
