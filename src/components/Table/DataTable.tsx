@@ -1,23 +1,77 @@
 "use client";
 
-import { ColumnDef, flexRender, getCoreRowModel, useReactTable } from "@tanstack/react-table";
-import React, { useState } from "react";
+import React from "react";
+
+import {
+	ColumnDef,
+	CoreOptions,
+	ExpandedState,
+	flexRender,
+	getCoreRowModel,
+	getExpandedRowModel,
+	OnChangeFn,
+	RowSelectionState,
+	SortingState,
+	useReactTable
+} from "@tanstack/react-table";
+
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "./Table";
+import { SortableHeader } from "./Sorting";
+import { cn } from "../..";
 
 interface DataTableProps<TData, TValue> {
 	columns: ColumnDef<TData, TValue>[];
 	data: TData[];
+	filters?: Record<string, string>;
+	resetFilters?: () => void;
+	getRowId?: CoreOptions<TData>["getRowId"];
+	rowSelection?: RowSelectionState;
+	onRowSelectionChange?: OnChangeFn<RowSelectionState>;
+	sorting?: SortingState;
+	onSortingChange?: OnChangeFn<SortingState>;
+	expanded?: ExpandedState;
+	onExpandedChange?: OnChangeFn<ExpandedState>;
+	getSubRows?: (row: TData) => TData[];
 }
 
-export function DataTable<TData, TValue>({ columns, data }: DataTableProps<TData, TValue>) {
-	const [rowSelection, setRowSelection] = useState({});
+export function DataTable<TData, TValue>({
+	columns,
+	data,
+	filters,
+	resetFilters,
+	sorting,
+	onSortingChange,
+	expanded,
+	onExpandedChange,
+	getSubRows,
+	getRowId,
+	rowSelection = {},
+	onRowSelectionChange
+}: DataTableProps<TData, TValue>) {
 	const table = useReactTable({
 		data,
-		columns,
-		onRowSelectionChange: setRowSelection,
+		columns: columns.map((col) => {
+			// if col.enableSorting is not defined, set it to false
+			if (col.enableSorting === undefined) {
+				col.enableSorting = false;
+			}
+			return col;
+		}),
+		manualSorting: true,
+		onRowSelectionChange,
+		onSortingChange,
+		enableSortingRemoval: false,
+		enableMultiSort: false,
+		enableRowSelection: true,
+		onExpandedChange,
+		getRowId,
+		getSubRows,
 		getCoreRowModel: getCoreRowModel(),
+		getExpandedRowModel: getExpandedRowModel(),
 		state: {
-			rowSelection
+			rowSelection,
+			sorting,
+			expanded
 		}
 	});
 
@@ -28,16 +82,29 @@ export function DataTable<TData, TValue>({ columns, data }: DataTableProps<TData
 					{table.getHeaderGroups().map((headerGroup) => (
 						<TableRow key={headerGroup.id}>
 							{headerGroup.headers.map((header) => {
+								const canSort = header.column.getCanSort();
 								return (
 									<TableHead
-										className="text-theme-text-secondary"
+										className={cn(
+											header.column.columnDef.meta?.className,
+											`${
+												canSort ? "p-0" : ""
+											} bg-theme-surface-tertiary font-semibold text-theme-text-secondary`
+										)}
 										key={header.id}
-										// @ts-expect-error width doesnt exist on the type, and would need a global fragmentation
-										style={{ width: header.column.columnDef.meta?.width || undefined }}
+										style={{
+											width: header.column.columnDef.meta?.width
+										}}
 									>
-										{header.isPlaceholder
-											? null
-											: flexRender(header.column.columnDef.header, header.getContext())}
+										{canSort ? (
+											<SortableHeader header={header}>
+												{header.isPlaceholder
+													? null
+													: flexRender(header.column.columnDef.header, header.getContext())}
+											</SortableHeader>
+										) : header.isPlaceholder ? null : (
+											flexRender(header.column.columnDef.header, header.getContext())
+										)}
 									</TableHead>
 								);
 							})}
@@ -53,12 +120,40 @@ export function DataTable<TData, TValue>({ columns, data }: DataTableProps<TData
 								data-state={row.getIsSelected() && "selected"}
 							>
 								{row.getVisibleCells().map((cell) => (
-									<TableCell className="font-medium text-theme-text-primary" key={cell.id}>
+									<TableCell
+										className={cn(
+											"font-medium text-theme-text-primary",
+											cell.column.columnDef.meta?.className
+										)}
+										key={cell.id}
+									>
 										{flexRender(cell.column.columnDef.cell, cell.getContext())}
 									</TableCell>
 								))}
 							</TableRow>
 						))
+					) : filters && Object.keys(filters).length ? (
+						<TableRow>
+							<TableCell
+								colSpan={columns.length}
+								className="h-24 bg-theme-surface-primary p-9 text-center"
+							>
+								<p className="text-text-lg text-theme-text-secondary">
+									No items match your current selection.
+								</p>
+								<p className="text-text-lg text-theme-text-secondary">
+									Refine your filters and try again.
+								</p>
+								<div className="mt-5">
+									<p
+										className="inline-block cursor-pointer text-text-lg text-theme-text-brand underline"
+										onClick={resetFilters}
+									>
+										Clear filters
+									</p>
+								</div>
+							</TableCell>
+						</TableRow>
 					) : (
 						<TableRow>
 							<TableCell
