@@ -1,5 +1,11 @@
 # @zenml-io/react-component-library
 
+## 0.23.0
+
+### Minor Changes
+
+- 621a79e: port full functionality of DataTable component from pro
+
 ## 0.22.0
 
 ### Minor Changes
