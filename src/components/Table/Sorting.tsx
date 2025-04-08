@@ -15,14 +15,14 @@ function SortingArrow({ direction }: Props) {
 	return <Comp className="h-4 w-4 shrink-0" />;
 }
 
-interface HeaderProps<TData extends RowData> {
-	header: Header<TData, unknown>;
+interface HeaderProps<TData extends RowData, TValue> {
+	header: Header<TData, TValue>;
 }
 
-export function SortableHeader<TData extends RowData>({
+export function SortableHeader<TData extends RowData, TValue>({
 	header,
 	children
-}: PropsWithChildren<HeaderProps<TData>>) {
+}: PropsWithChildren<HeaderProps<TData, TValue>>) {
 	return (
 		<button
 			className={`${
