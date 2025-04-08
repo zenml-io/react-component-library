@@ -11,7 +11,7 @@ type DummyData = {
 	age: number;
 };
 
-const cols: ColumnDef<DummyData, unknown>[] = [
+const cols: ColumnDef<DummyData>[] = [
 	{
 		id: "id",
 		header: "ID",
@@ -134,7 +134,7 @@ const CustomizedDataTable = () => {
 	);
 };
 
-const colsCustomized: ColumnDef<DummyData, unknown>[] = [
+const colsCustomized: ColumnDef<DummyData>[] = [
 	{
 		id: "select",
 		accessorKey: "select",
