@@ -1,5 +1,11 @@
 # @zenml-io/react-component-library
 
+## 0.23.1
+
+### Patch Changes
+
+- 0832b17: adjust types
+
 ## 0.23.0
 
 ### Minor Changes
