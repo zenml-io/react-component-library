@@ -1,5 +1,11 @@
 # @zenml-io/react-component-library
 
+## 0.23.2
+
+### Patch Changes
+
+- bb7bed6: adjust border radius of tags based on tag size
+
 ## 0.23.1
 
 ### Patch Changes
