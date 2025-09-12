@@ -4,7 +4,7 @@ import { cn } from "../../utilities";
 
 export const tagVariants = cva("shrink-0 flex items-center justify-center gap-0.5 py-0.5 px-1", {
 	variants: {
-		rounded: { false: "rounded-md", true: "rounded-rounded" },
+		rounded: { false: "", true: "rounded-rounded" },
 		size: { sm: "h-6  text-text-sm", xs: "h-5 text-text-xs" },
 		emphasis: {
 			bold: "",
@@ -26,6 +26,16 @@ export const tagVariants = cva("shrink-0 flex items-center justify-center gap-0.
 		}
 	},
 	compoundVariants: [
+		{
+			rounded: false,
+			size: "sm",
+			class: "rounded-md"
+		},
+		{
+			rounded: false,
+			size: "xs",
+			class: "rounded-sm"
+		},
 		// gray
 		{
 			emphasis: "bold",
