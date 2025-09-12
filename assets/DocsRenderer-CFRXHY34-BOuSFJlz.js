@@ -1,0 +1,7 @@
+import{_ as p}from"./iframe-Z53zmqYl.js";import{R as e,r as c}from"./index-yUhCOHB4.js";import{H as l,A as u,C as h,D as E}from"./index-BCIjJdjl.js";import{renderElement as d,unmountElement as x}from"./react-18-CAQg0x4w.js";import"./jsx-runtime-DBhXMc9n.js";import"./index-z4ifl892.js";import"./index-Cu4lwwaE.js";import"./index-Cxo8En29.js";import"./index-DrFu-skq.js";var _={code:h,a:u,...l},D=class extends c.Component{constructor(){super(...arguments),this.state={hasError:!1}}static getDerivedStateFromError(){return{hasError:!0}}componentDidCatch(t){let{showException:r}=this.props;r(t)}render(){let{hasError:t}=this.state,{children:r}=this.props;return t?null:e.createElement(e.Fragment,null,r)}},F=class{constructor(){this.render=async(t,r,o)=>{let n={..._,...r==null?void 0:r.components},s=E;return new Promise((m,a)=>{p(()=>import("./index-BVirYd6z.js"),__vite__mapDeps([0,1]),import.meta.url).then(({MDXProvider:i})=>d(e.createElement(D,{showException:a,key:Math.random()},e.createElement(i,{components:n},e.createElement(s,{context:t,docsParameter:r}))),o)).then(()=>m())})},this.unmount=t=>{x(t)}}};export{F as DocsRenderer,_ as defaultComponents};
+function __vite__mapDeps(indexes) {
+  if (!__vite__mapDeps.viteFileDeps) {
+    __vite__mapDeps.viteFileDeps = ["./index-BVirYd6z.js","./index-yUhCOHB4.js"]
+  }
+  return indexes.map((i) => __vite__mapDeps.viteFileDeps[i])
+}
