@@ -8,7 +8,7 @@ export const inputVariants = cva(
 		"border-border-moderate border",
 		"text-theme-text-primary",
 		"placeholder:text-theme-text-secondary",
-		"focus:border-primary-400 focus:outline-none focus:shadow-none focus:ring-[3px] ring-primary-25",
+		"focus:border-primary-400 focus:outline-none focus:ring-[3px] ring-primary-25",
 		"disabled:bg-neutral-100 disabled:text-neutral-400"
 	]),
 	{
