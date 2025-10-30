@@ -5,10 +5,10 @@ import { cn } from "../../utilities";
 export const inputVariants = cva(
 	cn([
 		"transition-all duration-200 rounded-md bg-theme-surface-primary",
-		"border-[#D0D5DD] border",
+		"border-border-moderate border",
 		"text-theme-text-primary",
 		"placeholder:text-theme-text-secondary",
-		"focus:border-neutral-500 focus:outline-none focus:shadow-sm",
+		"focus:border-primary-400 focus:outline-none focus:ring-[3px] ring-primary-25",
 		"disabled:bg-neutral-100 disabled:text-neutral-400"
 	]),
 	{
