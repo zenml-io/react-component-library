@@ -1,5 +1,11 @@
 # @zenml-io/react-component-library
 
+## 0.24.0
+
+### Minor Changes
+
+- a3ecb4e: Update input styling
+
 ## 0.23.2
 
 ### Patch Changes
