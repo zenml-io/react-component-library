@@ -6,10 +6,6 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 This is a **React component library** published to npm as `@zenml-io/react-component-library`. It provides reusable UI components built with Radix UI primitives and styled with Tailwind CSS, following the ZenML design system.
 
-The library is used by both:
-- **zenml-cloud-ui** - The ZenML Pro Next.js application
-- **zenml-dashboard** - The open-source React dashboard
-
 ## Development Commands
 
 ```bash
