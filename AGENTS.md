@@ -14,14 +14,13 @@
 - `pnpm test` — execute the Vitest suite in `test/` and any colocated `*.test.ts(x)` files.
 
 ## Coding Style & Naming Conventions
-- TypeScript, JSX, and CSS follow Prettier defaults (2-space indent, single quotes where practical). Run `pnpm format` before committing.
+- TypeScript, JSX, and CSS follow Prettier defaults. Check the `.prettierrc`-file for all defined rules. Run `pnpm format` before committing.
 - Follow Tailwind utility ordering from `tailwind.config.js` and keep custom tokens in `src/tailwind/`.
-- Components use PascalCase filenames (`Button.tsx`), hooks use camelCase (`useKeyboardNavigator.ts`), and CSS modules stick to kebab-case.
+- Components use PascalCase filenames (`Button.tsx`), hooks use camelCase (`useKeyboardNavigator.ts`).
 - Prefer Radix and TanStack primitives already in use; avoid introducing new UI libraries without discussion.
 
 ## Testing Guidelines
 - Write Vitest specs mirroring the file under test (e.g., `test/button.test.tsx`).
-- Snapshot DOM output only for stable components; otherwise assert behavior through user-facing APIs.
 - Cover new props, state branches, and accessibility behaviors before opening a PR. Aim for meaningful assertions over numeric coverage targets.
 
 ## Commit & Pull Request Guidelines
