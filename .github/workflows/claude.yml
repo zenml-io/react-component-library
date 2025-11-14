@@ -60,8 +60,10 @@ jobs:
       - name: Run Claude Code
         id: claude
         uses: anthropics/claude-code-action@v1
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
         with:
-          anthropic_api_key: ${{ secrets.CLAUDE_GITHUB_ACTIONS_ANTHROPIC_KEY }}
+          anthropic_api_key: ${{ secrets.ANTHROPIC_API_KEY }}
           track_progress: true
           
           # This is an optional setting that allows Claude to read CI results on PRs
