@@ -1,4 +1,4 @@
-import type { Preview, ReactRenderer } from "@storybook/react";
+import type { Preview, ReactRenderer } from "@storybook/react-vite";
 import { withThemeByClassName } from "@storybook/addon-themes";
 
 /* TODO: update import to your tailwind styles file. If you're using Angular, inject this through your angular.json config instead */
@@ -7,11 +7,10 @@ import "../src/index.css";
 const preview: Preview = {
 	parameters: {
 		backgrounds: {
-			default: "light",
-			values: [
-				{ name: "light", value: "#F9FAFB" },
-				{ name: "dark", value: "#1F2937" }
-			]
+			options: {
+				light: { name: "Light", value: "#F9FAFB" },
+				dark: { name: "Dark", value: "#1F2937" }
+			}
 		},
 		actions: { argTypesRegex: "^on[A-Z].*" },
 		controls: {
@@ -20,6 +19,9 @@ const preview: Preview = {
 				date: /Date$/
 			}
 		}
+	},
+	initialGlobals: {
+		backgrounds: { value: "light" }
 	},
 
 	decorators: [

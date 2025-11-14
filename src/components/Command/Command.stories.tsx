@@ -1,4 +1,4 @@
-import { Meta } from "@storybook/react";
+import { Meta } from "@storybook/react-vite";
 import React from "react";
 import {
 	Command,
@@ -10,7 +10,7 @@ import {
 	CommandSeparator,
 	CommandShortcut
 } from "./index";
-import { StoryObj } from "@storybook/react";
+import { StoryObj } from "@storybook/react-vite";
 import { Input } from "../Input";
 
 const meta = {

@@ -1,4 +1,4 @@
-import { Meta } from "@storybook/react";
+import { Meta } from "@storybook/react-vite";
 import React from "react";
 import {
 	Collapsible,
@@ -7,7 +7,7 @@ import {
 	CollapsibleTrigger,
 	CollapsiblePanel
 } from "./index";
-import { StoryObj } from "@storybook/react";
+import { StoryObj } from "@storybook/react-vite";
 
 const meta = {
 	title: "Elements/Collapsible",

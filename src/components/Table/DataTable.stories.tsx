@@ -1,5 +1,5 @@
-import { Meta } from "@storybook/react";
-import { StoryObj } from "@storybook/react";
+import { Meta } from "@storybook/react-vite";
+import { StoryObj } from "@storybook/react-vite";
 import React, { useState } from "react";
 import { DataTable, injectSortingArrowIcons } from "./index";
 import { ColumnDef, RowSelectionState, SortingState } from "@tanstack/react-table";

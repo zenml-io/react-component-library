@@ -1,7 +1,7 @@
-import { Meta } from "@storybook/react";
+import { Meta } from "@storybook/react-vite";
 import React from "react";
 import { Toaster, Toast, toast } from "./index";
-import { StoryObj } from "@storybook/react";
+import { StoryObj } from "@storybook/react-vite";
 import { Button } from "../Button";
 
 const meta = {

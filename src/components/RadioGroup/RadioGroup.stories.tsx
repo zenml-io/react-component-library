@@ -1,7 +1,7 @@
-import { Meta } from "@storybook/react";
+import { Meta } from "@storybook/react-vite";
 import React from "react";
 import { RadioGroup, RadioGroupItem } from "./index";
-import { StoryObj } from "@storybook/react";
+import { StoryObj } from "@storybook/react-vite";
 
 const meta = {
 	title: "Elements/Radio Group",

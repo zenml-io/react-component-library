@@ -1,5 +1,5 @@
-import { Meta } from "@storybook/react";
-import { StoryObj } from "@storybook/react";
+import { Meta } from "@storybook/react-vite";
+import { StoryObj } from "@storybook/react-vite";
 import { ProgressOutstanding, ProgressTick, progressTickVariants } from "./index";
 import React from "react";
 
