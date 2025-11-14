@@ -49,8 +49,10 @@ jobs:
       - name: Run Claude Code Review
         id: claude-review
         uses: anthropics/claude-code-action@v1
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
         with:
-          anthropic_api_key: ${{ secrets.CLAUDE_GITHUB_ACTIONS_ANTHROPIC_KEY }}
+          anthropic_api_key: ${{ secrets.ANTHROPIC_API_KEY }}
           track_progress: true
           prompt: |
             You are reviewing code changes for a React component library with git diffs included in the prompt. Focus on ensuring the changes are sound, clean, intentional, and void of regressions.
