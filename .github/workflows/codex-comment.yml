@@ -45,7 +45,7 @@ jobs:
     permissions:
       contents: read
     outputs:
-      final_message: ${{ steps.run_codex.outputs.final-message }}
+      final_message: ${{ steps.codex_comment.outputs.final-message || steps.codex_full_review.outputs.final-message }}
     steps:
       - name: Checkout PR merge commit
         uses: actions/checkout@v5
@@ -58,8 +58,18 @@ jobs:
             ${{ github.event.issue.pull_request.base.ref }} \
             +refs/pull/${{ github.event.issue.number }}/head \
             +refs/pull/${{ github.event.issue.number }}/merge
-      - name: Run Codex
-        id: run_codex
+      - name: Determine Codex mode
+        id: mode
+        run: |
+          COMMENT="${{ github.event.comment.body }}"
+          if echo "$COMMENT" | grep -qi '@codex /full-review'; then
+            echo "mode=full-review" >> "$GITHUB_OUTPUT"
+          else
+            echo "mode=comment" >> "$GITHUB_OUTPUT"
+          fi
+      - name: Run Codex (quick reply)
+        id: codex_comment
+        if: steps.mode.outputs.mode == 'comment'
         uses: openai/codex-action@v1
         with:
           openai-api-key: ${{ secrets.OPENAI_API_KEY }}
@@ -74,6 +84,50 @@ jobs:
             ----
 
             Follow the instructions from the commenter and limit work to this PR's changes. Provide actionable output suitable for posting back to the PR conversation.
+      - name: Run Codex (full review)
+        id: codex_full_review
+        if: steps.mode.outputs.mode == 'full-review'
+        uses: openai/codex-action@v1
+        with:
+          openai-api-key: ${{ secrets.OPENAI_API_KEY }}
+          codex-args: --max-turns 5 --allowed-tools "mcp__github_inline_comment__create_inline_comment,Bash(gh issue view:*),Bash(gh search:*),Bash(gh issue list:*),Bash(gh pr comment:*),Bash(gh pr diff:*),Bash(gh pr view:*),Bash(gh pr list:*)"
+          prompt: |
+            You are Codex performing a comprehensive review for the ZenML React Component Library.
+
+            REPO: ${{ github.repository }}
+            PR NUMBER: ${{ github.event.issue.number }}
+            BASE SHA: ${{ github.event.issue.pull_request.base.sha }}
+            HEAD SHA: ${{ github.event.issue.pull_request.head.sha }}
+
+            Triggering comment from @${{ github.actor }}:
+            ----
+            ${{ github.event.comment.body }}
+            ----
+
+            Context:
+            - Fetch PR metadata via: gh pr view ${{ github.event.issue.number }} --json title,body,author,headRefName,baseRefName,commits
+            - Inspect the diff via: gh pr diff ${{ github.event.issue.number }} --name-only
+            - Use repo docs (AGENTS.md, CLAUDE.md, README) for conventions.
+            - This repo ships the @zenml-io/react-component-library built with React, TypeScript, Tailwind, and Radix primitives.
+
+            Primary Review Goals:
+            1) Verify components and utilities behave as intended without regressions.
+            2) Ensure API changes are intentional, documented, and typed (no implicit `any`).
+            3) Enforce styling/pattern discipline: Tailwind utilities, shared tokens, no lucide-react imports.
+            4) Check accessibility (ARIA roles, keyboard interactions) and cross-browser resilience.
+            5) Flag dead code, accidental snapshots, or package/version drift.
+
+            Documentation & Testing:
+            - If public APIs change, ensure docs, stories, and typings are updated.
+            - Request unit tests (vitest) for new utilities and visual regression coverage when warranted.
+            - Confirm stories showcase new props/variants.
+
+            Output Instructions:
+            - Start with a brief summary of the PR's intent.
+            - List critical issues (blocking) with file references.
+            - Provide minor suggestions and celebrate strengths.
+            - Suggest concrete next steps or TODOs.
+            - Use `gh pr comment` if inline discussion is required (allowed via codex-args).
 
   post-comment:
     name: Post Codex reply
