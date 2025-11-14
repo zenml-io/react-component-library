@@ -1,5 +1,3 @@
-"use client";
-
 import * as React from "react";
 import { Slottable } from "@radix-ui/react-slot";
 import * as DropdownMenuPrimitive from "@radix-ui/react-dropdown-menu";
