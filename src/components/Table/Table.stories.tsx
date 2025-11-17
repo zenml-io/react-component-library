@@ -1,5 +1,5 @@
-import { Meta } from "@storybook/react";
-import { StoryObj } from "@storybook/react";
+import { Meta } from "@storybook/react-vite";
+import { StoryObj } from "@storybook/react-vite";
 import React from "react";
 import { Table, TableHeader, TableBody, TableHead, TableRow, TableCell } from "./index";
 

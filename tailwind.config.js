@@ -1,4 +1,4 @@
-import { zenmlPreset } from "./src/index";
+import { zenmlPreset } from "./src/tailwind";
 
 /** @type {import('tailwindcss').Config} */
 export default {
@@ -7,6 +7,6 @@ export default {
 	theme: {
 		extend: {}
 	},
-	// eslint-disable-next-line no-undef
+	 
 	plugins: [require("tailwindcss-animate")]
 };

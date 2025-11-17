@@ -1,8 +1,8 @@
-import { Meta } from "@storybook/react";
+import { Meta } from "@storybook/react-vite";
 import React from "react";
 import { SidebarItem, SidebarItemContent } from "./Sidebar";
 import { CPU } from "../../../.storybook/assets/icons";
-import { StoryObj } from "@storybook/react";
+import { StoryObj } from "@storybook/react-vite";
 import { SidebarProvider } from "./SidebarContext";
 
 const meta = {

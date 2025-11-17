@@ -1,8 +1,8 @@
-import { Meta } from "@storybook/react";
+import { Meta } from "@storybook/react-vite";
 import React from "react";
 import { Popover, PopoverContent, PopoverTrigger } from "./index";
 import { Button } from "../Button";
-import { StoryObj } from "@storybook/react";
+import { StoryObj } from "@storybook/react-vite";
 
 const meta = {
 	title: "Elements/Popover",
