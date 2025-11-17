@@ -1,0 +1,1 @@
+import{c as n}from"./index-DcZlE0k4.js";import{R as o}from"./iframe-DmX7tmNN.js";function a({className:e,...t}){return o.createElement("div",{className:n("animate-pulse rounded-md bg-neutral-200",e),...t})}a.__docgenInfo={description:"",methods:[],displayName:"Skeleton"};export{a as S};
