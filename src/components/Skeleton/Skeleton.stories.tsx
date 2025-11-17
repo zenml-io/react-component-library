@@ -1,6 +1,6 @@
-import { Meta } from "@storybook/react";
+import { Meta } from "@storybook/react-vite";
 import { Skeleton } from "./index";
-import { StoryObj } from "@storybook/react";
+import { StoryObj } from "@storybook/react-vite";
 import React from "react";
 
 const meta = {

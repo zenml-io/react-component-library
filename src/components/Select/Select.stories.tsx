@@ -1,7 +1,7 @@
-import { Meta } from "@storybook/react";
+import { Meta } from "@storybook/react-vite";
 import React from "react";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "./index";
-import { StoryObj } from "@storybook/react";
+import { StoryObj } from "@storybook/react-vite";
 
 const meta = {
 	title: "Elements/Select",

@@ -1,4 +1,4 @@
-import { Meta } from "@storybook/react";
+import { Meta } from "@storybook/react-vite";
 import React from "react";
 import {
 	Sidebar,
@@ -12,7 +12,7 @@ import {
 } from "./index";
 import { Button } from "../Button";
 import { CPU, CloseButton } from "../../../.storybook/assets/icons";
-import { StoryObj } from "@storybook/react";
+import { StoryObj } from "@storybook/react-vite";
 import { AppShell } from "../../../.storybook/assets/Appshell";
 import { SidebarProvider, useSidebarContext } from "./SidebarContext";
 
