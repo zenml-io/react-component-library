@@ -111,8 +111,14 @@ jobs:
             6) Constructive Suggestions
                - Alternative approaches that might be cleaner
                - Opportunities to reduce complexity
-               - Missing test coverage for critical component behavior
                - Opportunities to improve accessibility
+
+            Testing Feedback Guidelines:
+            - **Be concise**: Avoid verbose test suggestions or lengthy code examples.
+            - **Stay laser-focused**: Only suggest tests that directly verify the specific changes in this PR—not tangential functionality.
+            - **Prioritize manual testing**: Brief, actionable suggestions for what to manually verify are most useful (e.g., "Test keyboard navigation on the new dropdown").
+            - **Limit scope**: If tests are needed, mention the scenario to cover in 1-2 sentences rather than writing full test implementations.
+            - **Skip if unnecessary**: Not every PR needs test suggestions—if the changes are straightforward or already covered, don't force test recommendations.
 
             Documentation & Storybook Review:
             - Determine if component behavior, props, or APIs have changed.
