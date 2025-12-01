@@ -132,3 +132,9 @@ dist
 
 dist
 storybook-static
+
+design/
+
+# Claude Code
+.claude/*
+!.claude/output-styles/
