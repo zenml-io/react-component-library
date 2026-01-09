@@ -48,6 +48,7 @@ src/components/
 ```
 
 **Key patterns**:
+
 - Built on **Radix UI** primitives for accessibility
 - Styled with **Tailwind CSS** using the ZenML design system
 - Use `class-variance-authority` (CVA) for variant management
@@ -58,17 +59,20 @@ src/components/
 ### Client vs Server Components
 
 **Client components** (`src/components/client.ts`):
+
 - Interactive components requiring React hooks or browser APIs
 - Examples: Sidebar, Dropdown, Dialog, Tooltip, Toast
 - Marked with `"use client"` directive for Next.js compatibility
 
 **Server components** (`src/components/server.ts`):
+
 - Non-interactive, server-renderable components
 - Examples: Box, Tag, Badge, Button, Input, Spinner, Skeleton
 
 ### Design System
 
 The **ZenML Tailwind plugin** (`src/tailwind/index.ts`) provides:
+
 - **Color system**: Custom color scales (primary, neutral, error, warning, success, blue, teal, turquoise, lime, magenta, orange)
 - **Semantic tokens**: `theme.text.*`, `theme.surface.*`, `theme.border.*`
 - **Typography scale**: `text-xs` to `text-xl`, `display-xs` to `display-xl`
@@ -80,6 +84,7 @@ The **ZenML Tailwind plugin** (`src/tailwind/index.ts`) provides:
 ### Utilities
 
 The `cn()` function (`src/utilities/index.ts`) is a custom merge of:
+
 1. **clsx** - Conditional className composition
 2. **tailwind-merge** - Deduplicates conflicting Tailwind classes
 
@@ -96,6 +101,7 @@ pnpm changeset:publish      # Publish to npm (runs build automatically)
 ```
 
 **Workflow**:
+
 1. Make changes to components
 2. Run `pnpm changeset` and describe your changes (patch/minor/major)
 3. Commit the changeset file (`.changeset/*.md`)
@@ -103,6 +109,7 @@ pnpm changeset:publish      # Publish to npm (runs build automatically)
 5. GitHub Actions runs `changeset:version` and `changeset:publish`
 
 **Important**:
+
 - Base branch is `main` (configured in `.changeset/config.json`)
 - Package is published as `public` to npm
 - The `prepublishOnly` script ensures the library is built before publishing
@@ -122,6 +129,13 @@ pnpm changeset:publish      # Publish to npm (runs build automatically)
 5. **Storybook stories**: Create stories showing all variants and states
 6. **Accessibility**: Leverage Radix UI primitives for ARIA compliance
 7. **Design system tokens**: Use semantic tokens (`theme.text.*`) over direct colors when possible
+
+## Planning & Review (Agentic Work)
+
+- Start non-trivial work with a short Markdown plan/spec (scope, exports, variants, stories/tests, acceptance criteria) and get Julian to review it before implementation.
+- During visual QA, keep changes holistic: validate the component against the plan and the design system instead of nudging pixels until it matches a local screenshot.
+- **Push back on style thrash:** if you are asked to do repeated micro-adjustments ("2px left", "slightly taller") or your diffs become mostly Tailwind/CSS churn, pause and ask for a single authoritative reference (screenshot/spec) and a clear acceptance criterion. Do not keep iterating via one-off overrides.
+- Prefer fixing styling at the right layer (token, spacing scale choice, component variant, or shared layout primitive). Avoid scattered bracket-notation pixel values and ad-hoc overrides unless explicitly planned and tightly scoped.
 
 ## Common Patterns
 
@@ -164,11 +178,13 @@ export { Component };
 ### Exporting components
 
 1. Add to `src/components/ComponentName/index.tsx`:
+
    ```typescript
    export * from "./ComponentName";
    ```
 
 2. Add to `src/components/client.ts` OR `src/components/server.ts`:
+
    ```typescript
    export * from "./ComponentName";
    ```
@@ -178,6 +194,7 @@ export { Component };
 ## Storybook
 
 Storybook is configured with:
+
 - **Vite** as the bundler
 - **Addon themes** for dark/light mode testing
 - Custom wrapper (`AppShell`) that includes ZenML design system styles
