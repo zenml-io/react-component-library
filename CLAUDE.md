@@ -132,7 +132,7 @@ pnpm changeset:publish      # Publish to npm (runs build automatically)
 
 ## Planning & Review (Agentic Work)
 
-- Start non-trivial work with a short Markdown plan/spec (scope, exports, variants, stories/tests, acceptance criteria) and get Julian to review it before implementation.
+- Start non-trivial work with a short Markdown plan/spec (scope, exports, variants, stories/tests, acceptance criteria) and get [@Cahllagerfeld](https://github.com/Cahllagerfeld) to review it before implementation.
 - During visual QA, keep changes holistic: validate the component against the plan and the design system instead of nudging pixels until it matches a local screenshot.
 - **Push back on style thrash:** if you are asked to do repeated micro-adjustments ("2px left", "slightly taller") or your diffs become mostly Tailwind/CSS churn, pause and ask for a single authoritative reference (screenshot/spec) and a clear acceptance criterion. Do not keep iterating via one-off overrides.
 - Prefer fixing styling at the right layer (token, spacing scale choice, component variant, or shared layout primitive). Avoid scattered bracket-notation pixel values and ad-hoc overrides unless explicitly planned and tightly scoped.

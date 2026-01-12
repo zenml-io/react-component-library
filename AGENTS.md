@@ -29,11 +29,11 @@
 
 ## Planning & Review (Agentic Work)
 
-- For non-trivial changes, write a short Markdown plan/spec up front (scope, impacted exports, variants, stories/tests, and acceptance criteria) and get Julian to review it before implementation.
+- For non-trivial changes, write a short Markdown plan/spec up front (scope, impacted exports, variants, stories/tests, and acceptance criteria) and get [@Cahllagerfeld](https://github.com/Cahllagerfeld) to review it before implementation.
 - Treat the plan as the source of truth during follow-up iterations. If something looks off in visual QA, re-check the plan and fix the root cause (tokens/variants/layout primitives) rather than accumulating local overrides.
 - **Avoid style thrash:** if you find yourself making tiny CSS/Tailwind nudges ("move this 2px", "make it look right") across multiple commits or touching unrelated styles, **stop**. Ask for a screenshot/reference, confirm the intended design behavior, and prefer a deliberate token/variant change over one-off tweaks.
 - Prefer the design system spacing scale and semantic tokens; avoid arbitrary pixel constants and bracket-notation spacing utilities (e.g., `ml-[52px]`) unless the plan explicitly calls for it and the change is isolated and justified.
-- If achieving the desired look requires scattered overrides, treat that as a signal the abstraction is wrong (missing component variant, missing token, or incorrect layout primitive). Escalate to Julian for guidance instead of continuing to iterate blindly.
+- If achieving the desired look requires scattered overrides, treat that as a signal the abstraction is wrong (missing component variant, missing token, or incorrect layout primitive). Escalate to [@Cahllagerfeld](https://github.com/Cahllagerfeld) for guidance instead of continuing to iterate blindly.
 
 ## Commit & Pull Request Guidelines
 
