@@ -3,7 +3,7 @@ import { cva, VariantProps } from "class-variance-authority";
 import { cn } from "../../utilities";
 
 export const numberboxVariants = cva(
-	"flex h-10 w-10 items-center justify-center rounded-sm text-text-lg font-semibold",
+	"flex h-7 w-7 items-center justify-center rounded-sm text-text-lg font-semibold",
 	{
 		variants: {
 			intent: {

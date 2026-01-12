@@ -1,121 +1,17 @@
 import * as React from "react";
 import { cva, VariantProps } from "class-variance-authority";
 import { cn } from "../../utilities";
+import { usePagination, UsePaginationProps, UsePaginationReturn } from "./usePagination";
 
-// ============================================================================
-// usePagination Hook
-// ============================================================================
-
-export interface UsePaginationProps {
-	currentPage: number;
-	totalPages: number;
-	siblingCount?: number;
-	onPageChange: (page: number) => void;
-}
-
-export interface UsePaginationReturn {
-	currentPage: number;
-	totalPages: number;
-	pages: (number | "ellipsis")[];
-	canGoNext: boolean;
-	canGoPrevious: boolean;
-	goToPage: (page: number) => void;
-	goToNext: () => void;
-	goToPrevious: () => void;
-	goToFirst: () => void;
-	goToLast: () => void;
-}
-
-export function usePagination({
-	currentPage,
-	totalPages,
-	siblingCount = 1,
-	onPageChange
-}: UsePaginationProps): UsePaginationReturn {
-	const pages = React.useMemo(() => {
-		const pageNumbers: (number | "ellipsis")[] = [];
-
-		let leftEllipsisAdded = false;
-		let rightEllipsisAdded = false;
-
-		for (let i = 1; i <= totalPages; i++) {
-			const isEllipsis =
-				i > 1 && i < totalPages && Math.abs(i - currentPage) > siblingCount;
-
-			if (
-				i === 1 ||
-				i === totalPages ||
-				isEllipsis ||
-				Math.abs(i - currentPage) <= siblingCount
-			) {
-				if (isEllipsis) {
-					if (i < currentPage && !leftEllipsisAdded) {
-						pageNumbers.push("ellipsis");
-						leftEllipsisAdded = true;
-					} else if (i > currentPage && !rightEllipsisAdded) {
-						pageNumbers.push("ellipsis");
-						rightEllipsisAdded = true;
-					}
-				} else {
-					pageNumbers.push(i);
-				}
-			}
-		}
-
-		return pageNumbers;
-	}, [currentPage, totalPages, siblingCount]);
-
-	const canGoNext = currentPage < totalPages;
-	const canGoPrevious = currentPage > 1;
-
-	const goToPage = React.useCallback(
-		(page: number) => {
-			if (page >= 1 && page <= totalPages && page !== currentPage) {
-				onPageChange(page);
-			}
-		},
-		[currentPage, totalPages, onPageChange]
-	);
-
-	const goToNext = React.useCallback(() => {
-		if (canGoNext) {
-			goToPage(currentPage + 1);
-		}
-	}, [canGoNext, currentPage, goToPage]);
-
-	const goToPrevious = React.useCallback(() => {
-		if (canGoPrevious) {
-			goToPage(currentPage - 1);
-		}
-	}, [canGoPrevious, currentPage, goToPage]);
-
-	const goToFirst = React.useCallback(() => {
-		goToPage(1);
-	}, [goToPage]);
-
-	const goToLast = React.useCallback(() => {
-		goToPage(totalPages);
-	}, [totalPages, goToPage]);
-
-	return {
-		currentPage,
-		totalPages,
-		pages,
-		canGoNext,
-		canGoPrevious,
-		goToPage,
-		goToNext,
-		goToPrevious,
-		goToFirst,
-		goToLast
-	};
-}
+// Re-export hook types for external consumers
+export type { UsePaginationProps, UsePaginationReturn };
+export { usePagination };
 
 // ============================================================================
 // Pagination Context
 // ============================================================================
 
-interface PaginationContextValue extends UsePaginationReturn {}
+type PaginationContextValue = UsePaginationReturn;
 
 const PaginationContext = React.createContext<PaginationContextValue | null>(null);
 
@@ -233,8 +129,7 @@ PaginationLink.displayName = "PaginationLink";
 // PaginationPrevious
 // ============================================================================
 
-export interface PaginationPreviousProps
-	extends React.ButtonHTMLAttributes<HTMLButtonElement> {}
+export type PaginationPreviousProps = React.ButtonHTMLAttributes<HTMLButtonElement>;
 
 const PaginationPrevious = React.forwardRef<HTMLButtonElement, PaginationPreviousProps>(
 	({ className, children, ...props }, ref) => {
@@ -260,7 +155,7 @@ PaginationPrevious.displayName = "PaginationPrevious";
 // PaginationNext
 // ============================================================================
 
-export interface PaginationNextProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {}
+export type PaginationNextProps = React.ButtonHTMLAttributes<HTMLButtonElement>;
 
 const PaginationNext = React.forwardRef<HTMLButtonElement, PaginationNextProps>(
 	({ className, children, ...props }, ref) => {
@@ -286,7 +181,7 @@ PaginationNext.displayName = "PaginationNext";
 // PaginationFirst
 // ============================================================================
 
-export interface PaginationFirstProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {}
+export type PaginationFirstProps = React.ButtonHTMLAttributes<HTMLButtonElement>;
 
 const PaginationFirst = React.forwardRef<HTMLButtonElement, PaginationFirstProps>(
 	({ className, children, ...props }, ref) => {
@@ -313,7 +208,7 @@ PaginationFirst.displayName = "PaginationFirst";
 // PaginationLast
 // ============================================================================
 
-export interface PaginationLastProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {}
+export type PaginationLastProps = React.ButtonHTMLAttributes<HTMLButtonElement>;
 
 const PaginationLast = React.forwardRef<HTMLButtonElement, PaginationLastProps>(
 	({ className, children, ...props }, ref) => {

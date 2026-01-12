@@ -1,6 +1,6 @@
 import * as React from "react";
 import { Slot } from "@radix-ui/react-slot";
-import { cva, VariantProps } from "class-variance-authority";
+import { cva } from "class-variance-authority";
 import { cn } from "../../utilities";
 
 // EmptyStateRoot - section wrapper with centered layout
@@ -8,9 +8,7 @@ const emptyStateRootVariants = cva(
 	"flex h-full w-full flex-1 flex-col items-center justify-center gap-5 layout-container"
 );
 
-export interface EmptyStateRootProps
-	extends React.HTMLAttributes<HTMLElement>,
-		VariantProps<typeof emptyStateRootVariants> {
+export interface EmptyStateRootProps extends React.HTMLAttributes<HTMLElement> {
 	asChild?: boolean;
 }
 
@@ -25,9 +23,7 @@ EmptyStateRoot.displayName = "EmptyStateRoot";
 // EmptyStateIcon - Icon container with optional decorative background
 const emptyStateIconVariants = cva("relative flex items-center justify-center");
 
-export interface EmptyStateIconProps
-	extends React.HTMLAttributes<HTMLDivElement>,
-		VariantProps<typeof emptyStateIconVariants> {
+export interface EmptyStateIconProps extends React.HTMLAttributes<HTMLDivElement> {
 	asChild?: boolean;
 }
 
@@ -44,9 +40,7 @@ const emptyStateTitleVariants = cva(
 	"text-display-xs font-semibold text-center whitespace-pre-line"
 );
 
-export interface EmptyStateTitleProps
-	extends React.HTMLAttributes<HTMLHeadingElement>,
-		VariantProps<typeof emptyStateTitleVariants> {
+export interface EmptyStateTitleProps extends React.HTMLAttributes<HTMLHeadingElement> {
 	asChild?: boolean;
 }
 
@@ -63,9 +57,7 @@ const emptyStateDescriptionVariants = cva(
 	"text-text-lg text-theme-text-secondary text-center whitespace-pre-line"
 );
 
-export interface EmptyStateDescriptionProps
-	extends React.HTMLAttributes<HTMLParagraphElement>,
-		VariantProps<typeof emptyStateDescriptionVariants> {
+export interface EmptyStateDescriptionProps extends React.HTMLAttributes<HTMLParagraphElement> {
 	asChild?: boolean;
 }
 
@@ -82,7 +74,7 @@ EmptyStateDescription.displayName = "EmptyStateDescription";
 // EmptyStateActions - Container for action buttons
 const emptyStateActionsVariants = cva("flex items-center justify-center gap-3");
 
-export interface EmptyStateActionsProps extends React.HTMLAttributes<HTMLDivElement> {}
+export type EmptyStateActionsProps = React.HTMLAttributes<HTMLDivElement>;
 
 const EmptyStateActions = React.forwardRef<HTMLDivElement, EmptyStateActionsProps>(
 	({ className, ...props }, ref) => {
@@ -94,7 +86,7 @@ EmptyStateActions.displayName = "EmptyStateActions";
 // EmptyStateCode - Code block wrapper
 const emptyStateCodeVariants = cva("mt-5 w-full max-w-2xl");
 
-export interface EmptyStateCodeProps extends React.HTMLAttributes<HTMLDivElement> {}
+export type EmptyStateCodeProps = React.HTMLAttributes<HTMLDivElement>;
 
 const EmptyStateCode = React.forwardRef<HTMLDivElement, EmptyStateCodeProps>(
 	({ className, ...props }, ref) => {

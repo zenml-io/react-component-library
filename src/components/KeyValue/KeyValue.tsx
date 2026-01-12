@@ -1,15 +1,18 @@
 import * as React from "react";
-import { cva, VariantProps } from "class-variance-authority";
+import { cva } from "class-variance-authority";
 import { cn } from "../../utilities";
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "../Tooltip";
 
-// KeyValueRoot - dl wrapper with grid layout
-const KeyValueRoot = React.forwardRef<
-	HTMLDListElement,
-	React.HTMLAttributes<HTMLDListElement>
->(({ className, ...props }, ref) => (
-	<dl ref={ref} className={cn("grid grid-cols-3 gap-2", className)} {...props} />
-));
+// KeyValueRoot - dl wrapper with grid layout and container query support
+const KeyValueRoot = React.forwardRef<HTMLDListElement, React.HTMLAttributes<HTMLDListElement>>(
+	({ className, ...props }, ref) => (
+		<dl
+			ref={ref}
+			className={cn("@container grid grid-cols-3 gap-2", className)}
+			{...props}
+		/>
+	)
+);
 KeyValueRoot.displayName = "KeyValueRoot";
 
 // CVA variants for KeyValue sub-components
@@ -17,7 +20,7 @@ const keyValueKeyVariants = cva("flex items-center text-theme-text-secondary", {
 	variants: {
 		stacked: {
 			true: "col-span-3",
-			false: "col-span-1"
+			false: "col-span-3 @sm:col-span-1"
 		},
 		truncate: {
 			true: "truncate min-w-0",
@@ -34,7 +37,7 @@ const keyValueValueVariants = cva("flex items-center text-neutral-700", {
 	variants: {
 		stacked: {
 			true: "col-span-3",
-			false: "col-span-2"
+			false: "col-span-3 @sm:col-span-2"
 		},
 		truncate: {
 			true: "truncate min-w-0",
@@ -65,7 +68,6 @@ const KeyValueItem: React.FC<KeyValueItemProps> = ({
 	stacked = false,
 	truncate = false,
 	withTooltip = false,
-	className,
 	keyClassName,
 	valueClassName
 }) => {
