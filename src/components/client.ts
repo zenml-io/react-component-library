@@ -19,3 +19,6 @@ export * from "./HoverCard";
 export * from "./RadioGroup";
 export * from "./Command";
 export * from "./Popover";
+export * from "./KeyValue";
+export * from "./Pagination";
+export * from "./AvatarStack";
