@@ -138,3 +138,6 @@ design/
 # Claude Code
 .claude/*
 !.claude/output-styles/
+!.claude/design-implementation-guide.md
+!.claude/skills/
+!.claude/skills/**
