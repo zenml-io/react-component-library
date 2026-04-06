@@ -1,12 +1,14 @@
 # Repository Guidelines
 
 ## Project Structure & Module Organization
+
 - `src/components` holds exported UI primitives and composites; colocate component-specific styles in adjacent files and re-export via `src/components.ts`.
 - `src/utilities` contains shared hooks, config, and Tailwind helpers; only export surfaced utilities through `src/utilities.ts`.
 - `src/index.ts` is the single package entry point. Keep exports tree-shakeable and avoid side effects outside of global styling in `src/index.css`.
 - Tests and usage fixtures live in `test/`; Storybook stories and MDX docs belong under `src/docs` to stay close to components.
 
 ## Build, Test, and Development Commands
+
 - `pnpm dev` — watch-mode build via tsup for rapid local development.
 - `pnpm build` — produces the distributable bundle in `dist/`; run before publishing or cutting a release.
 - `pnpm storybook` / `pnpm storybook:build` — develop component demos locally or emit static docs.
@@ -14,16 +16,27 @@
 - `pnpm test` — execute the Vitest suite in `test/` and any colocated `*.test.ts(x)` files.
 
 ## Coding Style & Naming Conventions
+
 - TypeScript, JSX, and CSS follow Prettier defaults. Check the `.prettierrc`-file for all defined rules. Run `pnpm format` before committing.
 - Follow Tailwind utility ordering from `tailwind.config.js` and keep custom tokens in `src/tailwind/`.
 - Components use PascalCase filenames (`Button.tsx`), hooks use camelCase (`useKeyboardNavigator.ts`).
 - Prefer Radix and TanStack primitives already in use; avoid introducing new UI libraries without discussion.
 
 ## Testing Guidelines
+
 - Write Vitest specs mirroring the file under test (e.g., `test/button.test.tsx`).
 - Cover new props, state branches, and accessibility behaviors before opening a PR. Aim for meaningful assertions over numeric coverage targets.
 
+## Planning & Review (Agentic Work)
+
+- For non-trivial changes, write a short Markdown plan/spec up front (scope, impacted exports, variants, stories/tests, and acceptance criteria) and get [@Cahllagerfeld](https://github.com/Cahllagerfeld) to review it before implementation.
+- Treat the plan as the source of truth during follow-up iterations. If something looks off in visual QA, re-check the plan and fix the root cause (tokens/variants/layout primitives) rather than accumulating local overrides.
+- **Avoid style thrash:** if you find yourself making tiny CSS/Tailwind nudges ("move this 2px", "make it look right") across multiple commits or touching unrelated styles, **stop**. Ask for a screenshot/reference, confirm the intended design behavior, and prefer a deliberate token/variant change over one-off tweaks.
+- Prefer the design system spacing scale and semantic tokens; avoid arbitrary pixel constants and bracket-notation spacing utilities (e.g., `ml-[52px]`) unless the plan explicitly calls for it and the change is isolated and justified.
+- If achieving the desired look requires scattered overrides, treat that as a signal the abstraction is wrong (missing component variant, missing token, or incorrect layout primitive). Escalate to [@Cahllagerfeld](https://github.com/Cahllagerfeld) for guidance instead of continuing to iterate blindly.
+
 ## Commit & Pull Request Guidelines
+
 - Match the existing Conventional Commit style (`type: subject (#PR)`), e.g., `feat: add pagination controls (#123)`.
 - Reference the relevant issue or Changeset in the PR body, and include screenshots or Storybook links for visual changes.
 - Ensure CI-critical commands (`pnpm test`, `pnpm lint`, `pnpm build`) pass locally; attach the command output summary if CI is flaky.
