@@ -62,7 +62,7 @@ jobs:
             +refs/pull/${{ github.event.issue.number }}/merge
       - name: Run Codex
         id: codex
-        uses: openai/codex-action@c25d10f3f498316d4b2496cc4c6dd58057a7b031 # v1
+        uses: openai/codex-action@e0fdf01220eb9a88167c4898839d273e3f2609d1 # v1
         with:
           openai-api-key: ${{ secrets.OPENAI_API_KEY }}
           prompt: |
