@@ -5,5 +5,8 @@ export * from "./Button";
 export * from "./Input";
 export * from "./Spinner";
 export * from "./Skeleton";
+export * from "./Separator";
+export * from "./Numberbox";
+export * from "./EmptyState";
 export * from "./Table/Table";
 export * from "./Progress/ProgressItems";
