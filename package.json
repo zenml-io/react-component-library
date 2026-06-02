@@ -108,5 +108,6 @@
 		"@types/react-dom": "^18.0.0",
 		"react": "^18.0.0",
 		"react-dom": "^18.0.0"
-	}
+	},
+	"packageManager": "pnpm@10.34.1"
 }
